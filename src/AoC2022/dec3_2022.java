@@ -12,31 +12,41 @@ public class dec3_2022 {
         String sting = "";
         String fHalf = "";
         String lHalf = "";
+        char dupe = ' ';
 
         String in = dec2_2022.altReadFile("input/dec3.txt");
         while (true) {
             sting = "";
             for (int w = 0; w < 50; w++) {
                 i++;
+                if (i >= in.length()) {
+                    break;
+                }
                 if (in.charAt(i) != ' ') {
                     sting += in.charAt(i);
                 }
                 if (in.charAt(i) == ' ') {
-                    i++;
+
                     break;
                 }
             }
+            if (i >= in.length()) {
+                break;
+            }
 
             //check dupes
+            dupe = ' ';
             fHalf = sting.substring(0, (sting.length()/2));
-            lHalf = sting.substring(((sting.length()/2)+1), sting.length());
+            lHalf = sting.substring((sting.length()/2), sting.length());
             for (int p = 0; p < fHalf.length(); p++) {
-                for (int q = 0; q < fHalf.length(); q++) {
-                    if (fHalf.charAt(p) == lHalf.charAt(q)) {
+                for (int q = 0; q < fHalf.length()-1; q++) {
+                    if (fHalf.charAt(p) == lHalf.charAt(q) && fHalf.charAt(p) != dupe) {
                         c = fHalf.charAt(p);
                         total += givePoints(c);
+                        dupe = c;
                     }
                 }
+
             }
             if (i >= in.length()) {
                 break;

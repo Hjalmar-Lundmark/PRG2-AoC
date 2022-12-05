@@ -21,6 +21,7 @@ public class dec5_2022 {
         int p = 0;
         Scanner scan = new Scanner(new File("input/dec5.txt"));
         char antal = ' ';
+        int antalInt = 0;
         char from = ' ';
         char to = ' ';
 
@@ -71,7 +72,9 @@ public class dec5_2022 {
                 to = in.charAt(17);
 
                 //move
-
+                antalInt = Integer.parseInt(antal + "");
+                stack12.addAll(1, stack12);
+                stack12.add(0, 'Å');
             }
 
             p++;        //nr of rows read
