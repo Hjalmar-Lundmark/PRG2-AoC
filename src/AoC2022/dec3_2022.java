@@ -5,7 +5,7 @@ import java.util.Locale;
 
 public class dec3_2022 {
     public static void main(String[] args) throws FileNotFoundException {
-        int i = 0;
+        int i = -1;
         int charTest = 0;
         char c = ' ';
         int total = 0;
@@ -16,12 +16,13 @@ public class dec3_2022 {
         String in = dec2_2022.altReadFile("input/dec3.txt");
         while (true) {
             sting = "";
-            while (true) {       //Creates a full number, ie 1234
+            for (int w = 0; w < 50; w++) {
+                i++;
                 if (in.charAt(i) != ' ') {
                     sting += in.charAt(i);
                 }
-                i++;
                 if (in.charAt(i) == ' ') {
+                    i++;
                     break;
                 }
             }
