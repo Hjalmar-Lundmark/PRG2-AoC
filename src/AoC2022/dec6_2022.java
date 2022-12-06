@@ -26,7 +26,7 @@ public class dec6_2022 {
             } */
 
             for (int o = 0; o < 14; o++) {
-                p2[i+o] = in.charAt(i+o);
+                p2[o] = in.charAt(i+o);
             }
 
             //Probably a bad idea
