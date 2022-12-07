@@ -12,10 +12,12 @@ public class dec3_2022 {
         String sting = "";
         String fHalf = "";
         String lHalf = "";
+        String thirdHalf = "";
         char dupe = ' ';
         int third = 0;
 
         String in = dec2_2022.altReadFile("input/dec3.txt");
+        int test = in.length();
         while (true) {
             sting = "";
             for (int w = 0; w < 1000; w++) {
@@ -31,6 +33,13 @@ public class dec3_2022 {
                     if (third > 3) {
                         third = 1;
                     }
+                    if (third == 1) {
+                        fHalf = sting;
+                    } else if (third == 2) {
+                        lHalf = sting;
+                    } else {
+                        thirdHalf = sting;
+                    }
                     break;
                 }
             }
@@ -38,6 +47,8 @@ public class dec3_2022 {
                 break;
             }
 
+            //Part 1
+            /*
             //check dupes
             dupe = ' ';
             fHalf = sting.substring(0, (sting.length()/2));
@@ -52,6 +63,28 @@ public class dec3_2022 {
                 }
 
             }
+             */
+            //part 2
+            if (thirdHalf != "") {
+                dupe = ' ';
+                for (int p = 0; p < fHalf.length(); p++) {
+                    for (int q = 0; q < lHalf.length(); q++) {
+                        for (int e = 0; e < thirdHalf.length(); e++) {
+                            if (fHalf.charAt(p) == lHalf.charAt(q) && fHalf.charAt(p) == thirdHalf.charAt(e) && fHalf.charAt(p) != dupe) {
+                                c = fHalf.charAt(p);
+                                total += givePoints(c);
+                                dupe = c;
+                            }
+                        }
+                    }
+
+                }
+
+                fHalf = "";
+                lHalf = "";
+                thirdHalf = "";
+            }
+
             if (i >= in.length()) {
                 break;
             }
