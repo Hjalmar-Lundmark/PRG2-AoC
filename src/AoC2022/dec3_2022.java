@@ -13,11 +13,12 @@ public class dec3_2022 {
         String fHalf = "";
         String lHalf = "";
         char dupe = ' ';
+        int third = 0;
 
         String in = dec2_2022.altReadFile("input/dec3.txt");
         while (true) {
             sting = "";
-            for (int w = 0; w < 50; w++) {
+            for (int w = 0; w < 1000; w++) {
                 i++;
                 if (i >= in.length()) {
                     break;
@@ -26,7 +27,10 @@ public class dec3_2022 {
                     sting += in.charAt(i);
                 }
                 if (in.charAt(i) == ' ') {
-
+                    third++;
+                    if (third > 3) {
+                        third = 1;
+                    }
                     break;
                 }
             }
@@ -39,7 +43,7 @@ public class dec3_2022 {
             fHalf = sting.substring(0, (sting.length()/2));
             lHalf = sting.substring((sting.length()/2), sting.length());
             for (int p = 0; p < fHalf.length(); p++) {
-                for (int q = 0; q < fHalf.length()-1; q++) {
+                for (int q = 0; q < fHalf.length(); q++) {
                     if (fHalf.charAt(p) == lHalf.charAt(q) && fHalf.charAt(p) != dupe) {
                         c = fHalf.charAt(p);
                         total += givePoints(c);
