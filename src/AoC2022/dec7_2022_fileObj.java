@@ -21,14 +21,6 @@ public class dec7_2022_fileObj {
         return size;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     @Override
     public String toString() {
         return "dec7_2022_fileObj{" +

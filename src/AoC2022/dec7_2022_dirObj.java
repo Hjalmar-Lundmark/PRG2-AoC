@@ -3,10 +3,22 @@ package AoC2022;
 import java.util.ArrayList;
 
 public class dec7_2022_dirObj extends dec7_2022_fileObj{
-    String dirName;
-    int size;
+    private String dirName;
+    private int size;
     ArrayList<dec7_2022_fileObj> files;
     ArrayList<dec7_2022_dirObj> dirs;
+    dec7_2022_dirObj parent;
+
+    public dec7_2022_dirObj(String dirName) {
+        this.dirName = dirName;
+    }
+
+    public dec7_2022_dirObj(String dirName, dec7_2022_dirObj parent) {
+        this.dirName = dirName;
+        this.parent = parent;
+        this.files = new ArrayList<>();
+        this.dirs = new ArrayList<>();
+    }
 
     public dec7_2022_dirObj(String dirName, int size, ArrayList<dec7_2022_fileObj> files, ArrayList<dec7_2022_dirObj> dirs) {
         this.dirName = dirName;
@@ -27,34 +39,17 @@ public class dec7_2022_dirObj extends dec7_2022_fileObj{
         return dirName;
     }
 
-    public void setDirName(String dirName) {
-        this.dirName = dirName;
-    }
-
     @Override
     public int getSize() {
         return size;
-    }
-
-    @Override
-    public void setSize(int size) {
-        this.size = size;
     }
 
     public ArrayList<dec7_2022_fileObj> getFiles() {
         return files;
     }
 
-    public void setFiles(ArrayList<dec7_2022_fileObj> files) {
-        this.files = files;
-    }
-
     public ArrayList<dec7_2022_dirObj> getDirs() {
         return dirs;
-    }
-
-    public void setDirs(ArrayList<dec7_2022_dirObj> dirs) {
-        this.dirs = dirs;
     }
 
     @Override
@@ -67,8 +62,8 @@ public class dec7_2022_dirObj extends dec7_2022_fileObj{
                 '}';
     }
 
-    public void parent() {
-
+    public dec7_2022_dirObj getParent() {
+        return parent;
     }
 
     public String currentDir() {
@@ -80,5 +75,20 @@ public class dec7_2022_dirObj extends dec7_2022_fileObj{
             //Go there, idk how
 
         }
+    }
+
+    public void addFile(dec7_2022_fileObj f) {
+        files.add(f);
+    }
+
+    public void addDir(dec7_2022_dirObj d) {
+        dirs.add(d);
+    }
+
+    private void travDirs(dec7_2022_dirObj di) {
+        for (dec7_2022_dirObj d : di.dirs) {
+            travDirs(d);
+        }
+
     }
 }
