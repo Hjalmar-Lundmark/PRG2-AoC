@@ -17,7 +17,7 @@ public class dec4_2022 {
         for (int i = 0; i < 1000; i++) {
             in = (scan.nextLine()+" ");
 
-            first = getInt(0, in);      //These wont work bc the inInt value are at diff spots
+            first = getInt(0, in);
             if (first < 10) {
                 sec = getInt(2, in);
             } else {
@@ -42,10 +42,17 @@ public class dec4_2022 {
                 four = getInt(7, in);
             }
 
-
+            /* Part 1
             if (first <= third && sec >= four) {
                 total++;
             } else if(first >= third && sec <= four) {
+                total++;
+            }
+            */
+
+            if (first <= third && sec <= four) {
+                total++;
+            } else if(first >= third && sec >= four) {
                 total++;
             }
 
