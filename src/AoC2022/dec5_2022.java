@@ -7,16 +7,15 @@ import java.util.Scanner;
 
 public class dec5_2022 {
     public static void main(String[] args) throws FileNotFoundException {
-        char[] stack1 = new char[20];
-        ArrayList<Character> stack12 = new ArrayList<Character>();
-        char[] stack2 = new char[20];
-        char[] stack3 = new char[20];
-        char[] stack4 = new char[20];
-        char[] stack5 = new char[20];
-        char[] stack6 = new char[20];
-        char[] stack7 = new char[20];
-        char[] stack8 = new char[20];
-        char[] stack9 = new char[20];
+        ArrayList<Character> stack1 = new ArrayList<Character>();
+        ArrayList<Character> stack2 = new ArrayList<Character>();
+        ArrayList<Character> stack3 = new ArrayList<Character>();
+        ArrayList<Character> stack4 = new ArrayList<Character>();
+        ArrayList<Character> stack5 = new ArrayList<Character>();
+        ArrayList<Character> stack6 = new ArrayList<Character>();
+        ArrayList<Character> stack7 = new ArrayList<Character>();
+        ArrayList<Character> stack8 = new ArrayList<Character>();
+        ArrayList<Character> stack9 = new ArrayList<Character>();
         String in = "";
         int p = 0;
         Scanner scan = new Scanner(new File("input/dec5.txt"));
@@ -47,19 +46,36 @@ public class dec5_2022 {
              */
 
             if (p<8) {
-                stack1[p] = in.charAt(1);
-                stack12.add(in.charAt(1));
-                stack2[p] = in.charAt(5);
-                stack3[p] = in.charAt(9);
-                stack4[p] = in.charAt(13);
-                stack5[p] = in.charAt(17);
-                stack6[p] = in.charAt(21);
+                if (in.charAt(1) != ' ') {
+                    stack1.add(in.charAt(1));
+                }
+                if (in.charAt(5) != ' ') {
+                    stack2.add(in.charAt(5));
+                }
+                if (in.charAt(9) != ' ') {
+                    stack3.add(in.charAt(9));
+                }
+                if (in.charAt(13) != ' ') {
+                    stack4.add(in.charAt(13));
+                }
+                if (in.charAt(17) != ' ') {
+                    stack5.add(in.charAt(17));
+                }
+                if (in.charAt(21) != ' ') {
+                    stack6.add(in.charAt(21));
+                }
                 if (in.length() > 24) {
-                    stack7[p] = in.charAt(25);
+                    if (in.charAt(25) != ' ') {
+                        stack7.add(in.charAt(25));
+                    }
                     if (in.length() > 28) {
-                        stack8[p] = in.charAt(29);
+                        if (in.charAt(29) != ' ') {
+                            stack8.add(in.charAt(29));
+                        }
                         if (in.length() > 32) {
-                            stack9[p] = in.charAt(33);
+                            if (in.charAt(33) != ' ') {
+                                stack9.add(in.charAt(33));
+                            }
                         }
                     }
                 }
@@ -73,8 +89,9 @@ public class dec5_2022 {
 
                 //move
                 antalInt = Integer.parseInt(antal + "");
-                stack12.addAll(1, stack12);
-                stack12.add(0, 'Å');
+                stack1.addAll(0, stack1);
+                stack1.add(0, 'Å');
+                stack1.remove(7);
             }
 
             p++;        //nr of rows read
