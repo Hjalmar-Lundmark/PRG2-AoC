@@ -27,23 +27,6 @@ public class dec5_2022 {
         //in = dec2_2022.altReadFile("input/dec5.txt");
         while (true) {
             in = scan.nextLine();
-            /*
-            part = "";
-            for (int q = 0; q < 36; q++) {       //Creates a full row
-                if (in.charAt(p) != '\n') {
-                    part += in.charAt(p);
-                }
-                p++;
-                if (in.charAt(p) == '\n') {
-                    break;
-                }
-            }
-
-            for (int i = 0; i < 123; i++) {
-
-            }
-
-             */
 
             if (p<8) {
                 if (in.charAt(1) != ' ') {
@@ -82,16 +65,212 @@ public class dec5_2022 {
             }
 
             if (p > 10) {
-                //move stuff, do I need arraylist???
+                //move stuff
                 antal = in.charAt(5);
                 from = in.charAt(12);
                 to = in.charAt(17);
 
                 //move
                 antalInt = Integer.parseInt(antal + "");
-                stack1.addAll(0, stack1);
-                stack1.add(0, 'Å');
-                stack1.remove(7);
+
+                //stack1.add(0, 'Å');
+
+                for (int i = 0; i < antalInt; i++) {
+                    if (from == '1') {
+                        if (to == '2') {
+                            stack2.add(0, stack1.get(0));
+                            stack1.remove(0);
+                        } else if (to == '3') {
+                            stack3.add(0, stack1.get(0));
+                            stack1.remove(0);
+                        } else if (to == '4') {
+                            stack4.add(0, stack1.get(0));
+                            stack1.remove(0);
+                        } else if (to == '5') {
+                            stack5.add(0, stack1.get(0));
+                            stack1.remove(0);
+                        } else if (to == '6') {
+                            stack6.add(0, stack1.get(0));
+                            stack1.remove(0);
+                        } else if (to == '7') {
+                            stack7.add(0, stack1.get(0));
+                            stack1.remove(0);
+                        } else if (to == '8') {
+                            stack8.add(0, stack1.get(0));
+                            stack1.remove(0);
+                        } else if (to == '9') {
+                            stack9.add(0, stack1.get(0));
+                            stack1.remove(0);
+                        }
+                    } else if (from == '2') {
+                        if (to == '1') {
+                            stack1.add(0, stack2.get(0));
+                            stack2.remove(0);
+                        } else if (to == '3') {
+                            stack3.add(0, stack2.get(0));
+                            stack2.remove(0);
+                        } else if (to == '4') {
+                            stack4.add(0, stack2.get(0));
+                            stack2.remove(0);
+                        } else if (to == '5') {
+                            stack5.add(0, stack2.get(0));
+                            stack2.remove(0);
+                        } else if (to == '6') {
+                            stack6.add(0, stack2.get(0));
+                            stack2.remove(0);
+                        } else if (to == '7') {
+                            stack7.add(0, stack2.get(0));
+                            stack2.remove(0);
+                        } else if (to == '8') {
+                            stack8.add(0, stack2.get(0));
+                            stack2.remove(0);
+                        } else if (to == '9') {
+                            stack9.add(0, stack2.get(0));
+                            stack2.remove(0);
+                        }
+                    } else if (from == '3') {
+                        //stack1
+                        if (to == '1') {
+                            stack1.add(0, stack3.get(0));
+                            stack3.remove(0);
+                        } else if (to == '2') {
+                            stack2.add(0, stack3.get(0));
+                            stack3.remove(0);
+                        } else if (to == '4') {
+                            stack4.add(0, stack3.get(0));
+                            stack3.remove(0);
+                        } else if (to == '5') {
+                            stack5.add(0, stack3.get(0));
+                            stack3.remove(0);
+                        } else if (to == '6') {
+                            stack6.add(0, stack3.get(0));
+                            stack3.remove(0);
+                        } else if (to == '7') {
+                            stack7.add(0, stack3.get(0));
+                            stack3.remove(0);
+                        } else if (to == '8') {
+                            stack8.add(0, stack3.get(0));
+                            stack3.remove(0);
+                        } else if (to == '9') {
+                            stack9.add(0, stack3.get(0));
+                            stack3.remove(0);
+                        }
+                    } else if (from == '4') {
+                        //stack1
+                        if (to == '1') {
+
+                        } else if (to == '3') {
+
+                        } else if (to == '4') {
+
+                        } else if (to == '5') {
+
+                        } else if (to == '6') {
+
+                        } else if (to == '7') {
+
+                        } else if (to == '8') {
+
+                        } else if (to == '9') {
+
+                        }
+                    } else if (from == '5') {
+                        //stack1
+                        if (to == '1') {
+
+                        } else if (to == '3') {
+
+                        } else if (to == '4') {
+
+                        } else if (to == '5') {
+
+                        } else if (to == '6') {
+
+                        } else if (to == '7') {
+
+                        } else if (to == '8') {
+
+                        } else if (to == '9') {
+
+                        }
+                    } else if (from == '6') {
+                        //stack1
+                        if (to == '1') {
+
+                        } else if (to == '3') {
+
+                        } else if (to == '4') {
+
+                        } else if (to == '5') {
+
+                        } else if (to == '6') {
+
+                        } else if (to == '7') {
+
+                        } else if (to == '8') {
+
+                        } else if (to == '9') {
+
+                        }
+                    } else if (from == '7') {
+                        //stack1
+                        if (to == '1') {
+
+                        } else if (to == '3') {
+
+                        } else if (to == '4') {
+
+                        } else if (to == '5') {
+
+                        } else if (to == '6') {
+
+                        } else if (to == '7') {
+
+                        } else if (to == '8') {
+
+                        } else if (to == '9') {
+
+                        }
+                    } else if (from == '8') {
+                        //stack1
+                        if (to == '1') {
+
+                        } else if (to == '3') {
+
+                        } else if (to == '4') {
+
+                        } else if (to == '5') {
+
+                        } else if (to == '6') {
+
+                        } else if (to == '7') {
+
+                        } else if (to == '8') {
+
+                        } else if (to == '9') {
+
+                        }
+                    } else if (from == '9') {
+                        //stack1
+                        if (to == '1') {
+
+                        } else if (to == '3') {
+
+                        } else if (to == '4') {
+
+                        } else if (to == '5') {
+
+                        } else if (to == '6') {
+
+                        } else if (to == '7') {
+
+                        } else if (to == '8') {
+
+                        } else if (to == '9') {
+
+                        }
+                    }
+                }
             }
 
             p++;        //nr of rows read
