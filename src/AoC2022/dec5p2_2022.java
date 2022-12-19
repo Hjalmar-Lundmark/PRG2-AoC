@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class dec5_2022 {
+public class dec5p2_2022 {
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Character> stack1 = new ArrayList<Character>();
         ArrayList<Character> stack2 = new ArrayList<Character>();
@@ -76,15 +76,16 @@ public class dec5_2022 {
                     to = in.charAt(17+1);
                 }
 
-                System.out.println("test");
                 //move
-                //ish 90 ifs, im sorry
+                //ish 80 ifs, im sorry
 
                 for (int i = 0; i < antalInt; i++) {
                     if (from == '1') {
                         if (to == '2') {
                             stack2.add(0, stack1.get(0));
                             stack1.remove(0);
+
+                            
                         } else if (to == '3') {
                             stack3.add(0, stack1.get(0));
                             stack1.remove(0);
