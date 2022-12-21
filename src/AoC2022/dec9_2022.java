@@ -16,17 +16,25 @@ public class dec9_2022 {
         char c = ' ';
         String temp = "";
         int delta = 0;
-        ArrayList<Integer> places = new ArrayList<Integer>();
+        ArrayList<Integer> places = new ArrayList<Integer>();   //fix, need int or something instead as checking coords doesnt work
 
         for (int i = 0; i < 2000; i++) {
             in = scan.nextLine();
 
             delta = dec4_2022.getInt(2, in);
 
+            places.add(TX);
+            //doesnt work in diagonal right now
             if (in.charAt(0) == 'R') {
                 for (int o = 0; o < delta; o++) {
                     HX++;
-                    if (TX < HX-1) {
+                    if (TY < HY && TX < HX-1) {
+                        TY++;
+                        TX++;
+                    } else if (TY > HY && TX < HX-1) {
+                        TY--;
+                        TX++;
+                    } else if (TX < HX-1) {
                         TX++;
                         if (!places.contains(TX)) {
                             places.add(TX);
@@ -36,7 +44,7 @@ public class dec9_2022 {
             } else if (in.charAt(0) == 'L') {
                 for (int o = 0; o < delta; o++) {
                     HX -= 1;
-                    if (TX > HX-1) {
+                    if (TX > HX+1) {
                         TX -= 1;
                         if (!places.contains(TX)) {
                             places.add(TX);
@@ -56,7 +64,7 @@ public class dec9_2022 {
             } else {
                 for (int o = 0; o < delta; o++) {
                     HY -= 1;
-                    if (TY > HY-1) {
+                    if (TY > HY+1) {
                         TY -= 1;
                         if (!places.contains(TX)) {
                             places.add(TX);
