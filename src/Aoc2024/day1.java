@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 public class day1 {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class day1 {
         String content = "";
         String[] row;
         int distance = 0;
+        int similarity = 0;
 
         content = globalFuncs.readFile("input/Aoc2024/day1.txt");
 
@@ -34,8 +36,17 @@ public class day1 {
 
         for (int i = 0; i < row.length; i++) {
             distance += Math.abs((left.get(i) - right.get(i)));
+
+            int timesFound = 0;
+            for (int j = 0; j < right.size(); j++) {
+                if (Objects.equals(left.get(i), right.get(j))) {
+                    timesFound++;
+                }
+            }
+            similarity += left.get(i) * timesFound;
         }
 
         System.out.println(distance);
+        System.out.println(similarity);
     }
 }
