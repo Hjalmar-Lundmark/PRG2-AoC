@@ -15,7 +15,6 @@ public class day3 {
 
         for (int i = 0; i < content.length(); i++) {
             if (content.charAt(i) == 'm' && content.charAt(i+1) == 'u' && content.charAt(i+2) == 'l' && content.charAt(i+3) == '(') {
-                System.out.println("numbers reseting");
                 number1 = "";
                 number2 = "";
                 commaFound = false;
@@ -34,10 +33,8 @@ public class day3 {
                     if (isDigit) {
                         if (!commaFound) {
                             number1 += content.charAt(i+4+j);
-                            System.out.println(number1);
                         } else {
                             number2 += content.charAt(i+4+j);
-                            System.out.println(number2);
                         }
                     } else if (content.charAt(i+4+j) != ',') {
                         endedCorrectly = false;
