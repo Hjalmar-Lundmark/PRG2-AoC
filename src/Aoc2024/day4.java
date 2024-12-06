@@ -38,5 +38,7 @@ public class day4 {
                 times++;
             }
         }
+
+        System.out.println(times);
     }
 }
