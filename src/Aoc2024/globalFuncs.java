@@ -3,6 +3,7 @@ package Aoc2024;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class globalFuncs {
 
@@ -27,5 +28,17 @@ public class globalFuncs {
             e.printStackTrace();
         }
         return meddelande;
+    }
+
+    public static String[] removeItem(String[] array, int index) {
+        String[] newArray = new String[array.length -1];
+        for(int i = 0, k = 0; i < array.length; i++){
+            if(i!=index){
+                newArray[k]=array[i];
+                k++;
+            }
+        }
+
+        return newArray;
     }
 }

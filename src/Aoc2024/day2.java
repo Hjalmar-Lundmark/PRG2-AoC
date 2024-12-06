@@ -1,5 +1,7 @@
 package Aoc2024;
 
+import java.util.Arrays;
+
 public class day2 {
     public static void main(String[] args) {
         String[] reports;
@@ -15,7 +17,9 @@ public class day2 {
 
             boolean safe = false;
             boolean asc = false;
+            boolean firstTimeOffence = false;
             for (int j = 0; j < level.length - 1; j++) {
+                System.out.println(Arrays.toString(level));
                 int difference = Integer.parseInt(level[j]) - Integer.parseInt(level[j + 1]);
 
                 if (j == 0) {
@@ -29,8 +33,13 @@ public class day2 {
                 if (Math.abs(difference) <= 3 && difference != 0 && asc == difference > 0) {
                     safe = true;
                 } else {
-                    safe = false;
-                    break;
+                    if (!firstTimeOffence) {
+                        firstTimeOffence = true;
+                        level = globalFuncs.removeItem(level, j+1);
+                    } else {
+                        safe = false;
+                        break;
+                    }
                 }
             }
 
