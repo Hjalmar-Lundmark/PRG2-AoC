@@ -9,12 +9,19 @@ public class day3 {
         String number2;
         boolean commaFound;
         boolean endedCorrectly = true;
+        boolean enabled = true;
         String content = "";
 
         content = globalFuncs.readFile("input/Aoc2024/day3.txt");
 
         for (int i = 0; i < content.length(); i++) {
-            if (content.charAt(i) == 'm' && content.charAt(i+1) == 'u' && content.charAt(i+2) == 'l' && content.charAt(i+3) == '(') {
+            if (content.charAt(i) == 'd' && content.charAt(i+1) == 'o' && content.charAt(i+2) == 'n' && content.charAt(i+3) == '\'' && content.charAt(i+4) == 't' && content.charAt(i+5) == '(' && content.charAt(i+6) == ')') {
+                enabled = false;
+            } else if (content.charAt(i) == 'd' && content.charAt(i+1) == 'o' && content.charAt(i+2) == '(' && content.charAt(i+3) == ')') {
+                enabled = true;
+            }
+
+            if (content.charAt(i) == 'm' && content.charAt(i+1) == 'u' && content.charAt(i+2) == 'l' && content.charAt(i+3) == '(' && enabled) {
                 number1 = "";
                 number2 = "";
                 commaFound = false;
