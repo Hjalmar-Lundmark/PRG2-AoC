@@ -31,13 +31,16 @@ public class globalFuncs {
     }
 
     public static String[] removeItem(String[] array, int index) {
+        //System.out.println("RemoveItem called");
         String[] newArray = new String[array.length -1];
         for(int i = 0, k = 0; i < array.length; i++){
-            if(i!=index){
-                newArray[k]=array[i];
+            if(i != index) {
+                newArray[k] = array[i];
                 k++;
             }
         }
+        //System.out.println(Arrays.toString(array));
+        //System.out.println(Arrays.toString(newArray));
 
         return newArray;
     }
