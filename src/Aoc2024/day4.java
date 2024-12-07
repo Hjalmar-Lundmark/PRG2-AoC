@@ -16,15 +16,8 @@ public class day4 {
 
         for (int i = 0; i < rows.length; i++) {
             for (int j = 0; j < rows[i].length(); j++) {
-
-                if (rows[i].charAt(j) != 'X' || rows[i].charAt(j) != 'M' || rows[i].charAt(j) != 'A' || rows[i].charAt(j) != 'S') {
                     testing[i] = testing[i].substring(0, j) + '.' + testing[i].substring(j + 1);
-                }
             }
-        }
-
-        for (String test: testing) {
-            System.out.println(test);
         }
 
         for (int i = 0; i < rows.length; i++) {
@@ -72,14 +65,14 @@ public class day4 {
                     testing[i+3] = testing[i+3].substring(0, j+3) + rows[i + 3].charAt(j+3) + testing[i+3].substring(j+3 + 1);
                     times++;
                     // Diagonalt vänster
-                } else if (j > 3 && i <= rows.length - 3 && rows[i].charAt(j) == 'X' && rows[i + 1].charAt(j - 1) == 'M' && rows[i + 2].charAt(j - 2) == 'A' && rows[i + 3].charAt(j - 3) == 'S') {
+                } else if (j >= 3 && i < rows.length - 3 && rows[i].charAt(j) == 'X' && rows[i + 1].charAt(j - 1) == 'M' && rows[i + 2].charAt(j - 2) == 'A' && rows[i + 3].charAt(j - 3) == 'S') {
                     testing[i] = testing[i].substring(0, j) + rows[i].charAt(j) + testing[i].substring(j + 1);
                     testing[i+1] = testing[i+1].substring(0, j-1) + rows[i + 1].charAt(j-1) + testing[i+1].substring(j-1 + 1);
                     testing[i+2] = testing[i+2].substring(0, j-2) + rows[i + 2].charAt(j-2) + testing[i+2].substring(j-2 + 1);
                     testing[i+3] = testing[i+3].substring(0, j-3) + rows[i + 3].charAt(j-3) + testing[i+3].substring(j-3 + 1);
                     times++;
                     // Diagonalt vänster bakvänt
-                } else if (j > 3 && i <= rows.length - 3 && rows[i].charAt(j) == 'S' && rows[i + 1].charAt(j - 1) == 'A' && rows[i + 2].charAt(j - 2) == 'M' && rows[i + 3].charAt(j - 3) == 'X') {
+                } else if (j >= 3 && i < rows.length - 3 && rows[i].charAt(j) == 'S' && rows[i + 1].charAt(j - 1) == 'A' && rows[i + 2].charAt(j - 2) == 'M' && rows[i + 3].charAt(j - 3) == 'X') {
                     testing[i] = testing[i].substring(0, j) + rows[i].charAt(j) + testing[i].substring(j + 1);
                     testing[i+1] = testing[i+1].substring(0, j-1) + rows[i + 1].charAt(j-1) + testing[i+1].substring(j-1 + 1);
                     testing[i+2] = testing[i+2].substring(0, j-2) + rows[i + 2].charAt(j-2) + testing[i+2].substring(j-2 + 1);
