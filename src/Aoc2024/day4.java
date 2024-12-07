@@ -23,7 +23,7 @@ public class day4 {
         for (int i = 0; i < rows.length; i++) {
             for (int j = 0; j < rows[i].length(); j++) {
                 // Vanlig
-                if (j <= rows[i].length() - 3 && rows[i].charAt(j) == 'X' && rows[i].charAt(j + 1) == 'M' && rows[i].charAt(j + 2) == 'A' && rows[i].charAt(j + 3) == 'S') {
+                if (j <= rows[i].length() - 4 && rows[i].charAt(j) == 'X' && rows[i].charAt(j + 1) == 'M' && rows[i].charAt(j + 2) == 'A' && rows[i].charAt(j + 3) == 'S') {
                     testing[i] = testing[i].substring(0, j) + rows[i].charAt(j) + testing[i].substring(j + 1);
                     testing[i] = testing[i].substring(0, j+1) + rows[i].charAt(j + 1) + testing[i].substring(j+1 + 1);
                     testing[i] = testing[i].substring(0, j+2) + rows[i].charAt(j + 2) + testing[i].substring(j+2 + 1);
@@ -32,7 +32,7 @@ public class day4 {
                 }
 
                 // Bakvänt
-                if (j <= rows[i].length() - 3 && rows[i].charAt(j) == 'S' && rows[i].charAt(j + 1) == 'A' && rows[i].charAt(j + 2) == 'M' && rows[i].charAt(j + 3) == 'X') {
+                if (j <= rows[i].length() - 4 && rows[i].charAt(j) == 'S' && rows[i].charAt(j + 1) == 'A' && rows[i].charAt(j + 2) == 'M' && rows[i].charAt(j + 3) == 'X') {
                     testing[i] = testing[i].substring(0, j) + rows[i].charAt(j) + testing[i].substring(j + 1);
                     testing[i] = testing[i].substring(0, j+1) + rows[i].charAt(j + 1) + testing[i].substring(j+1 + 1);
                     testing[i] = testing[i].substring(0, j+2) + rows[i].charAt(j + 2) + testing[i].substring(j+2 + 1);
@@ -41,7 +41,7 @@ public class day4 {
                 }
 
                 // Vertikalt
-                if (i <= rows.length - 3 && rows[i].charAt(j) == 'X' && rows[i + 1].charAt(j) == 'M' && rows[i + 2].charAt(j) == 'A' && rows[i+3].charAt(j) == 'S') {
+                if (i <= rows.length - 4 && rows[i].charAt(j) == 'X' && rows[i + 1].charAt(j) == 'M' && rows[i + 2].charAt(j) == 'A' && rows[i+3].charAt(j) == 'S') {
                     testing[i] = testing[i].substring(0, j) + rows[i].charAt(j) + testing[i].substring(j + 1);
                     testing[i+1] = testing[i+1].substring(0, j) + rows[i + 1].charAt(j) + testing[i+1].substring(j + 1);
                     testing[i+2] = testing[i+2].substring(0, j) + rows[i + 2].charAt(j) + testing[i+2].substring(j + 1);
@@ -50,7 +50,7 @@ public class day4 {
                 }
 
                 // Vertikalt bakvänt
-                if (i <= rows.length - 3 && rows[i].charAt(j) == 'S' && rows[i + 1].charAt(j) == 'A' && rows[i + 2].charAt(j) == 'M' && rows[i+3].charAt(j) == 'X') {
+                if (i <= rows.length - 4 && rows[i].charAt(j) == 'S' && rows[i + 1].charAt(j) == 'A' && rows[i + 2].charAt(j) == 'M' && rows[i+3].charAt(j) == 'X') {
                     testing[i] = testing[i].substring(0, j) + rows[i].charAt(j) + testing[i].substring(j + 1);
                     testing[i+1] = testing[i+1].substring(0, j) + rows[i + 1].charAt(j) + testing[i+1].substring(j + 1);
                     testing[i+2] = testing[i+2].substring(0, j) + rows[i + 2].charAt(j) + testing[i+2].substring(j + 1);
@@ -59,7 +59,7 @@ public class day4 {
                 }
 
                 // Diagonalt höger
-                if (j <= rows[i].length() - 3 && i < rows.length - 3 && rows[i].charAt(j) == 'X' && rows[i + 1].charAt(j + 1) == 'M' && rows[i + 2].charAt(j + 2) == 'A' && rows[i + 3].charAt(j + 3) == 'S') {
+                if (j <= rows[i].length() - 4 && i < rows.length - 3 && rows[i].charAt(j) == 'X' && rows[i + 1].charAt(j + 1) == 'M' && rows[i + 2].charAt(j + 2) == 'A' && rows[i + 3].charAt(j + 3) == 'S') {
                     testing[i] = testing[i].substring(0, j) + rows[i].charAt(j) + testing[i].substring(j + 1);
                     testing[i+1] = testing[i+1].substring(0, j+1) + rows[i + 1].charAt(j+1) + testing[i+1].substring(j+1 + 1);
                     testing[i+2] = testing[i+2].substring(0, j+2) + rows[i + 2].charAt(j+2) + testing[i+2].substring(j+2 + 1);
@@ -68,7 +68,7 @@ public class day4 {
                 }
 
                 // Diagonalt höger bakvänt
-                if (j <= rows[i].length() - 3 && i < rows.length - 3 && rows[i].charAt(j) == 'S' && rows[i + 1].charAt(j + 1) == 'A' && rows[i + 2].charAt(j + 2) == 'M' && rows[i + 3].charAt(j + 3) == 'X') {
+                if (j <= rows[i].length() - 4 && i < rows.length - 3 && rows[i].charAt(j) == 'S' && rows[i + 1].charAt(j + 1) == 'A' && rows[i + 2].charAt(j + 2) == 'M' && rows[i + 3].charAt(j + 3) == 'X') {
                     testing[i] = testing[i].substring(0, j) + rows[i].charAt(j) + testing[i].substring(j + 1);
                     testing[i+1] = testing[i+1].substring(0, j+1) + rows[i + 1].charAt(j+1) + testing[i+1].substring(j+1 + 1);
                     testing[i+2] = testing[i+2].substring(0, j+2) + rows[i + 2].charAt(j+2) + testing[i+2].substring(j+2 + 1);
