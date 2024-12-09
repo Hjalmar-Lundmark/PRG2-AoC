@@ -44,4 +44,12 @@ public class globalFuncs {
 
         return newArray;
     }
+
+    public static String reverse(String in) {
+        String reversed = "";
+        for (int i = 0; i < in.length(); i++) {
+            reversed = in.charAt(i) + reversed;
+        }
+        return reversed;
+    }
 }
