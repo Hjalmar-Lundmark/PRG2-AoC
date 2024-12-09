@@ -4,7 +4,7 @@ public class day9 {
     public static void main(String[] args) {
         int result = 0;
         String fullString = "";
-        int counter = 0;
+        char counter = '0';
         int times;
         String content = globalFuncs.readFile("input/Aoc2024/day9.txt").split(",")[0];
 
@@ -20,9 +20,17 @@ public class day9 {
                     fullString += ".";
                 }
                 counter++;
+                //System.out.println(counter);
             }
         }
 
+        for (int i = 0; i < fullString.length(); i++) {
+            if (fullString.charAt(i) == '.') {
+                //fullString = fullString.substring(0, i) +  + fullString.substring(i + 1);
+            }
+        }
+
+        //System.out.println(Integer.valueOf(counter-48));
         System.out.println(fullString);
     }
 }
