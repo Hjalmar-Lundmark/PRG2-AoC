@@ -36,25 +36,18 @@ public class day9 {
             if (fullString.charAt(i) == '.' && dotCounter >= 0) {
                 for (int j = 0; j < reverse.length(); j++) {
                     if (reverse.charAt(j) != '.') {
-                        ch = fullString.charAt(i) + "";
+                        ch = String.valueOf(fullString.charAt(i));
+
+                        reverse = reverse.substring(0, j) + "." + fullString.substring(j + 1);
+                        reverse = reverse.substring(0, i) + ch + fullString.substring(i + 1);
+
+                        fullString = fullString.substring(0, i) + ch + fullString.substring(i + 1);
+                        fullString = fullString.substring(0, j) + "." + fullString.substring(j + 1);
+
                         break;
                     }
                 }
-
-                fullString = fullString.replaceFirst("\\.", ch);
-                reverse = reverse.replaceFirst(ch, ".");
-                System.out.println(fullString);
-
-                fullString = globalFuncs.reverse(fullString);
-                reverse = globalFuncs.reverse(reverse);
-
-                fullString = fullString.replaceFirst(ch, ".");
-                reverse = reverse.replaceFirst("\\.", ch);
-
-                fullString = globalFuncs.reverse(fullString);
-                reverse = globalFuncs.reverse(reverse);
                 dotCounter--;
-
 
                 //fullString = fullString.substring(0, i) +  + fullString.substring(i + 1);
             }
