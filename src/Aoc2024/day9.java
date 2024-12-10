@@ -36,13 +36,14 @@ public class day9 {
             if (fullString.charAt(i) == '.' && dotCounter >= 0) {
                 for (int j = 0; j < reverse.length(); j++) {
                     if (reverse.charAt(j) != '.') {
-                        ch = String.valueOf(fullString.charAt(i));
-
-                        reverse = reverse.substring(0, j) + "." + fullString.substring(j + 1);
-                        reverse = reverse.substring(0, i) + ch + fullString.substring(i + 1);
+                        ch = String.valueOf(reverse.charAt(j));
 
                         fullString = fullString.substring(0, i) + ch + fullString.substring(i + 1);
-                        fullString = fullString.substring(0, j) + "." + fullString.substring(j + 1);
+                        fullString = fullString.substring(0, reverse.length()-1-j) + "." + fullString.substring(reverse.length()-1-j + 1);
+                        System.out.println(reverse);
+                        reverse = reverse.substring(0, i) + ch + reverse.substring(i + 1);
+                        reverse = reverse.substring(0, reverse.length()-1-j) + "." + reverse.substring(reverse.length()-1-j + 1);
+
 
                         break;
                     }
@@ -54,6 +55,6 @@ public class day9 {
         }
 
         //System.out.println(Integer.valueOf(counter-48));
-        System.out.println(fullString);
+        //System.out.println(fullString);
     }
 }
