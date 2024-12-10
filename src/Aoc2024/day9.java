@@ -8,7 +8,7 @@ public class day9 {
         String fullString = "";
         String reverse = "";
         char counter = '0';
-        int dotCounter = 0;
+        int dotCounter = -2;
         int times;
         String ch = "";
         String content = globalFuncs.readFile("input/Aoc2024/day9.txt").split(",")[0];
@@ -33,16 +33,15 @@ public class day9 {
         reverse = globalFuncs.reverse(fullString);
 
         for (int i = 0; i < fullString.length(); i++) {
-            if (fullString.charAt(i) == '.' && dotCounter >= 0) {
+            if (fullString.charAt(i) == '.' && dotCounter > 0) {
                 for (int j = 0; j < reverse.length(); j++) {
                     if (reverse.charAt(j) != '.') {
                         ch = String.valueOf(reverse.charAt(j));
 
                         fullString = fullString.substring(0, i) + ch + fullString.substring(i + 1);
                         fullString = fullString.substring(0, reverse.length()-1-j) + "." + fullString.substring(reverse.length()-1-j + 1);
-                        System.out.println(reverse);
-                        reverse = reverse.substring(0, i) + ch + reverse.substring(i + 1);
-                        reverse = reverse.substring(0, reverse.length()-1-j) + "." + reverse.substring(reverse.length()-1-j + 1);
+                        System.out.println(fullString);
+                        reverse = globalFuncs.reverse(fullString);
 
 
                         break;
