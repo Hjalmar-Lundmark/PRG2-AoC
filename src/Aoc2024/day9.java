@@ -26,7 +26,6 @@ public class day9 {
                     dotCounter++;
                 }
                 counter++;
-                //System.out.println(counter);
             }
         }
 
@@ -40,20 +39,25 @@ public class day9 {
 
                         fullString = fullString.substring(0, i) + ch + fullString.substring(i + 1);
                         fullString = fullString.substring(0, reverse.length()-1-j) + "." + fullString.substring(reverse.length()-1-j + 1);
-                        System.out.println(fullString);
                         reverse = globalFuncs.reverse(fullString);
-
 
                         break;
                     }
                 }
                 dotCounter--;
-
-                //fullString = fullString.substring(0, i) +  + fullString.substring(i + 1);
             }
         }
 
+        for (int i = 0; i < fullString.length(); i++) {
+            if (fullString.charAt(i) == '.') {
+                break;
+            }
+
+            result += (i * Integer.parseInt(String.valueOf(fullString.charAt(i))));
+            System.out.println(result);
+        }
+
         //System.out.println(Integer.valueOf(counter-48));
-        //System.out.println(fullString);
+        System.out.println(result);
     }
 }
