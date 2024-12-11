@@ -30,8 +30,11 @@ public class day9 {
                     counter++;
                 }
             }
+            System.out.println("checkpoint 1");
 
             reverse = globalFuncs.reverse(fullString);
+
+            System.out.println("checkpoint 1.5");
 
             for (int i = 0; i < fullString.length(); i++) {
                 if (fullString.charAt(i) == '.' && dotCounter > 0) {
@@ -41,14 +44,23 @@ public class day9 {
 
                             fullString = fullString.substring(0, i) + ch + fullString.substring(i + 1);
                             fullString = fullString.substring(0, reverse.length() - 1 - j) + "." + fullString.substring(reverse.length() - 1 - j + 1);
-                            reverse = globalFuncs.reverse(fullString);
+                            reverse = reverse.substring(0, j) + "." + reverse.substring(j+1);
+                            reverse = reverse.substring(0, reverse.length()-1-i) + ch + reverse.substring(reverse.length()-1-i);
 
                             break;
                         }
                     }
                     dotCounter--;
+
+                    if (dotCounter <= 0) {
+                        break;
+                    }
                 }
             }
+
+            System.out.println(fullString);
+
+            System.out.println("checkpoint 2");
 
             for (int i = 0; i < fullString.length(); i++) {
                 if (fullString.charAt(i) == '.') {
