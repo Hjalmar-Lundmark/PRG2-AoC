@@ -45,7 +45,7 @@ public class day9 {
                             fullString = fullString.substring(0, i) + ch + fullString.substring(i + 1);
                             fullString = fullString.substring(0, reverse.length() - 1 - j) + "." + fullString.substring(reverse.length() - 1 - j + 1);
                             reverse = reverse.substring(0, j) + "." + reverse.substring(j+1);
-                            reverse = reverse.substring(0, reverse.length()-1-i) + ch + reverse.substring(reverse.length()-1-i);
+                            reverse = reverse.substring(0, reverse.length()-1-i) + ch + reverse.substring(reverse.length()-1-i+1);
 
                             break;
                         }
