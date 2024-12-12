@@ -10,7 +10,7 @@ public class day9 {
             String fullString = "";
             String reverse = "";
             char counter = '0';
-            int dotCounter = -2;
+            int dotCounter = 0;
             int times;
             String ch = "";
             String content = globalFuncs.readFile("input/Aoc2024/day9.txt").split(",")[0];
@@ -24,27 +24,29 @@ public class day9 {
                     }
                 } else {
                     for (int j = 0; j < times; j++) {
-                        fullString += ".";
+                        fullString += "❀";
                         dotCounter++;
                     }
                     counter++;
                 }
             }
             System.out.println("checkpoint 1");
+            System.out.println(dotCounter);
+            System.out.println(fullString);
 
             reverse = globalFuncs.reverse(fullString);
 
             System.out.println("checkpoint 1.5");
 
             for (int i = 0; i < fullString.length(); i++) {
-                if (fullString.charAt(i) == '.' && dotCounter > 0) {
+                if (fullString.charAt(i) == '❀' && dotCounter > 0) {
                     for (int j = 0; j < reverse.length(); j++) {
-                        if (reverse.charAt(j) != '.') {
+                        if (reverse.charAt(j) != '❀') {
                             ch = String.valueOf(reverse.charAt(j));
 
                             fullString = fullString.substring(0, i) + ch + fullString.substring(i + 1);
-                            fullString = fullString.substring(0, reverse.length() - 1 - j) + "." + fullString.substring(reverse.length() - 1 - j + 1);
-                            reverse = reverse.substring(0, j) + "." + reverse.substring(j+1);
+                            fullString = fullString.substring(0, reverse.length() - 1 - j) + "❀" + fullString.substring(reverse.length() - 1 - j + 1);
+                            reverse = reverse.substring(0, j) + "❀" + reverse.substring(j+1);
                             reverse = reverse.substring(0, reverse.length()-1-i) + ch + reverse.substring(reverse.length()-1-i+1);
 
                             break;
@@ -63,7 +65,7 @@ public class day9 {
             System.out.println("checkpoint 2");
 
             for (int i = 0; i < fullString.length(); i++) {
-                if (fullString.charAt(i) == '.') {
+                if (fullString.charAt(i) == '❀') {
                     break;
                 }
 
