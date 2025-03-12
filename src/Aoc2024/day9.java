@@ -6,7 +6,7 @@ public class day9 {
     public static void main(String[] args) {
         long time = System.currentTimeMillis();
         try {
-            int result = 0;
+            long result = 0;
             String fullString = "";
             String reverse = "";
             char counter = '0';
