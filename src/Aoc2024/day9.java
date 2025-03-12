@@ -48,7 +48,7 @@ public class day9 {
 
                             //System.out.println(i + ", " + j);
                             if (j == dotCounterMax){
-                                System.out.println("Finished");
+                                System.out.println("Finished moving dots");
                                 stop = true;
                                 break;
                             }
@@ -62,15 +62,19 @@ public class day9 {
                             break;
                         }
                     }
-                    dotCounter--;
 
                     if (stop) {
+                        System.out.println("Moved " + (dotCounterMax - dotCounter) + " dots in total");
                         break;
                     }
+
+                    dotCounter--;
                 }
             }
 
             System.out.println(fullString);
+            System.out.println(reverse);
+            fullString = globalFuncs.reverse(reverse);
 
             System.out.println("checkpoint 2");
 
