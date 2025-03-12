@@ -14,6 +14,7 @@ public class day9 {
             int times;
             String ch = "";
             String content = globalFuncs.readFile("input/Aoc2024/day9.txt").split(",")[0];
+            boolean stop = false;
 
             for (int i = 0; i < content.length(); i++) {
                 times = Integer.parseInt(String.valueOf(content.charAt(i)));
@@ -31,7 +32,8 @@ public class day9 {
                 }
             }
             System.out.println("checkpoint 1");
-            System.out.println(dotCounter);
+            System.out.println("Added " + dotCounter + " dots");
+            int dotCounterMax = dotCounter;
             System.out.println(fullString);
 
             reverse = globalFuncs.reverse(fullString);
@@ -44,17 +46,25 @@ public class day9 {
                         if (reverse.charAt(j) != '❀') {
                             ch = String.valueOf(reverse.charAt(j));
 
+                            //System.out.println(i + ", " + j);
+                            if (j == dotCounterMax){
+                                System.out.println("Finished");
+                                stop = true;
+                                break;
+                            }
+
                             fullString = fullString.substring(0, i) + ch + fullString.substring(i + 1);
                             fullString = fullString.substring(0, reverse.length() - 1 - j) + "❀" + fullString.substring(reverse.length() - 1 - j + 1);
                             reverse = reverse.substring(0, j) + "❀" + reverse.substring(j+1);
                             reverse = reverse.substring(0, reverse.length()-1-i) + ch + reverse.substring(reverse.length()-1-i+1);
 
+                            //System.out.println(fullString);
                             break;
                         }
                     }
                     dotCounter--;
 
-                    if (dotCounter <= 0) {
+                    if (stop) {
                         break;
                     }
                 }
