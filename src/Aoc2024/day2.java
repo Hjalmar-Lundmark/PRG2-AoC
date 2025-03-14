@@ -30,7 +30,7 @@ public class day2 {
                 } else {
                     if (!firstTimeOffence) {
                         firstTimeOffence = true;
-                        level = globalFuncs.removeItem(level, j+1);
+                        level = globalFuncs.removeItem(level, j);
                         j = -1;
                     } else {
                         safe = false;
@@ -38,6 +38,8 @@ public class day2 {
                     }
                 }
             }
+            System.out.println(Arrays.toString(level));
+            System.out.println(safe);
 
             if (safe) {
                 safeReports++;
