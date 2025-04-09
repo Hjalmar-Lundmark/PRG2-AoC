@@ -29,8 +29,7 @@ public class day5 {
 
                 if (update.contains(firstRuleHalf) && update.contains(secondRuleHalf)) {
                     if (update.indexOf(firstRuleHalf) < update.indexOf(secondRuleHalf)) {
-
-
+                        // do nothing, move on
                     } else {
                         updateInRightOrder = false;
                         break;
@@ -43,15 +42,12 @@ public class day5 {
             }
         }
 
-        //calc middle values
         for (String update : correctUpdates) {
             String[] updateValues = update.split(",");
-            System.out.println(updateValues.length / 2);
             middleValue = Integer.parseInt(updateValues[updateValues.length / 2]);
             result += middleValue;
         }
 
-        System.out.println(correctUpdates);
         System.out.println(result);
     }
 
