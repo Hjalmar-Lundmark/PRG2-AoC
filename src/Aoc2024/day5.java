@@ -3,6 +3,8 @@ package Aoc2024;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class day5 {
@@ -10,28 +12,39 @@ public class day5 {
         int result = 0;
         String[] rules;
         String[] updates;
-        String firstInt = "";
-        String secondInt = "";
+        ArrayList<String> correctUpdates = new ArrayList<>();
+        String firstRuleHalf = "";
+        String secondRuleHalf = "";
+        boolean updateInRightOrder;
 
         rules = readFile("input/Aoc2024/day5.txt").split("\n.\n")[0].split(".\n");
         updates = readFile("input/Aoc2024/day5.txt").split("\n.\n")[1].split(".\n");
 
-        System.out.println(Arrays.toString(rules));
-        System.out.println(Arrays.toString(updates));
-
         for (String update : updates) {
+            updateInRightOrder = true; //default
             for (String rule : rules) {
-                firstInt = Integer.parseInt(rule.split("\\|")[0]);
-                secondInt = Integer.parseInt(rule.split("\\|")[1]);
+                firstRuleHalf = rule.split("\\|")[0];
+                secondRuleHalf = rule.split("\\|")[1];
 
-                if (update.contains(firstInt) && update.contains(secondInt)) {
-                    System.out.println("trueeee");
-                    System.out.println(update);
-                    break;
+                if (update.contains(firstRuleHalf) && update.contains(secondRuleHalf)) {
+                    if (update.indexOf(firstRuleHalf) < update.indexOf(secondRuleHalf)) {
+
+
+                    } else {
+                        updateInRightOrder = false;
+                        break;
+                    }
                 }
             }
-            break;
+
+            if (updateInRightOrder) {
+                correctUpdates.add(update);
+            }
         }
+
+        //calc middle values
+
+        System.out.println(correctUpdates);
     }
 
     public static String readFile(String filename) {
