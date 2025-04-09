@@ -10,9 +10,11 @@ import java.util.Arrays;
 public class day5 {
     public static void main(String[] args) {
         int result = 0;
+        int part2Result = 0;
         String[] rules;
         String[] updates;
         ArrayList<String> correctUpdates = new ArrayList<>();
+        ArrayList<String> inCorrectUpdates = new ArrayList<>();
         String firstRuleHalf = "";
         String secondRuleHalf = "";
         boolean updateInRightOrder;
@@ -39,6 +41,8 @@ public class day5 {
 
             if (updateInRightOrder) {
                 correctUpdates.add(update);
+            } else {
+                inCorrectUpdates.add(update);
             }
         }
 
@@ -48,7 +52,15 @@ public class day5 {
             result += middleValue;
         }
 
+        // calcs part2, still needs ordering above
+        for (String update : inCorrectUpdates) {
+            String[] updateValues = update.split(",");
+            middleValue = Integer.parseInt(updateValues[updateValues.length / 2]);
+            part2Result += middleValue;
+        }
+
         System.out.println(result);
+        System.out.println(part2Result);
     }
 
     public static String readFile(String filename) {
