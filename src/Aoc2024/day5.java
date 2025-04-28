@@ -15,10 +15,12 @@ public class day5 {
         String[] updates;
         ArrayList<String> correctUpdates = new ArrayList<>();
         ArrayList<String> inCorrectUpdates = new ArrayList<>();
+        ArrayList<String> updatesToBeOrdered = new ArrayList<>();
         String firstRuleHalf = "";
         String secondRuleHalf = "";
         boolean updateInRightOrder;
         int middleValue;
+        ArrayList<String> relevantRules;
 
         rules = readFile("input/Aoc2024/day5.txt").split("\n.\n")[0].split(".\n");
         updates = readFile("input/Aoc2024/day5.txt").split("\n.\n")[1].split(".\n");
@@ -42,7 +44,7 @@ public class day5 {
             if (updateInRightOrder) {
                 correctUpdates.add(update);
             } else {
-                inCorrectUpdates.add(update);
+                updatesToBeOrdered.add(update);
             }
         }
 
@@ -52,7 +54,27 @@ public class day5 {
             result += middleValue;
         }
 
-        // calcs part2, still needs ordering above
+        // does ordering for part 2
+        for (String update : updatesToBeOrdered ) {
+            String[] updateSplit = update.split(",");
+            relevantRules = new ArrayList<>();
+            for (String rule : rules) {
+                if (update.contains(rule.split("\\|")[0]) && update.contains(rule.split("\\|")[1])) {
+                    relevantRules.add(rule);
+                }
+            }
+
+            System.out.println(Arrays.toString(updateSplit));
+            System.out.println(relevantRules);
+
+            for (String rule : relevantRules) {
+
+            }
+
+            break;
+        }
+
+        // calcs part2
         for (String update : inCorrectUpdates) {
             String[] updateValues = update.split(",");
             middleValue = Integer.parseInt(updateValues[updateValues.length / 2]);
