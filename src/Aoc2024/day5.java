@@ -64,9 +64,6 @@ public class day5 {
                 }
             }
 
-            //System.out.println(updateSplit);
-            //System.out.println(relevantRules);
-
             for (int i = 0; i < relevantRules.size(); i++) {
                 String rule = relevantRules.get(i);
                 firstRuleHalf = rule.split("\\|")[0];
@@ -81,7 +78,8 @@ public class day5 {
                 }
             }
 
-            for (String rule : rules) {
+            // Some code copied from above to debug
+            /*for (String rule : rules) {
                 firstRuleHalf = rule.split("\\|")[0];
                 secondRuleHalf = rule.split("\\|")[1];
 
@@ -93,7 +91,7 @@ public class day5 {
                         break;
                     }
                 }
-            }
+            }*/
 
             //System.out.println(update);
             inCorrectUpdates.add(update);
@@ -119,10 +117,7 @@ public class day5 {
             BufferedReader inFil = new BufferedReader(fr);
             m2 = inFil.readLine();
             while (m2 != null) {
-                //System.out.println(meddelande);
-                // read next line
                 meddelande += m2 + ".\n";
-                //meddelande += " ";
                 m2 = inFil.readLine();
             }
 
