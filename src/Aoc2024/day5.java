@@ -76,18 +76,32 @@ public class day5 {
                 } else {
                     updateSplit.remove(secondRuleHalf);
                     updateSplit.add(secondRuleHalf);
-                    //System.out.println(updateSplit.toString());
                     update = updateSplit.toString();
                     i = 0;
                 }
             }
 
-            System.out.println(update);
+            for (String rule : rules) {
+                firstRuleHalf = rule.split("\\|")[0];
+                secondRuleHalf = rule.split("\\|")[1];
+
+                if (update.contains(firstRuleHalf) && update.contains(secondRuleHalf)) {
+                    if (update.indexOf(firstRuleHalf) < update.indexOf(secondRuleHalf)) {
+                        // do nothing, move on
+                    } else {
+                        System.out.println(update + "\n^ Is not correct\n" + rule + "\n" + relevantRules);
+                        break;
+                    }
+                }
+            }
+
+            //System.out.println(update);
+            inCorrectUpdates.add(update);
         }
 
         // calcs part2
         for (String update : inCorrectUpdates) {
-            String[] updateValues = update.split(",");
+            String[] updateValues = update.split(", ");
             middleValue = Integer.parseInt(updateValues[updateValues.length / 2]);
             part2Result += middleValue;
         }
