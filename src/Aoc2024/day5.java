@@ -77,7 +77,7 @@ public class day5 {
                     updateSplit.remove(secondRuleHalf);
                     updateSplit.add(secondRuleHalf);
                     update = updateSplit.toString();
-                    i = 0;
+                    i = -1;
                 }
             }
 
