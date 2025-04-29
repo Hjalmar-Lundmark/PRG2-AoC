@@ -56,7 +56,7 @@ public class day5 {
 
         // does ordering for part 2
         for (String update : updatesToBeOrdered ) {
-            String[] updateSplit = update.split(",");
+            ArrayList<String> updateSplit = new ArrayList<>(Arrays.asList(update.split(",")));
             relevantRules = new ArrayList<>();
             for (String rule : rules) {
                 if (update.contains(rule.split("\\|")[0]) && update.contains(rule.split("\\|")[1])) {
@@ -64,14 +64,25 @@ public class day5 {
                 }
             }
 
-            System.out.println(Arrays.toString(updateSplit));
-            System.out.println(relevantRules);
+            //System.out.println(updateSplit);
+            //System.out.println(relevantRules);
 
-            for (String rule : relevantRules) {
+            for (int i = 0; i < relevantRules.size(); i++) {
+                String rule = relevantRules.get(i);
+                firstRuleHalf = rule.split("\\|")[0];
+                secondRuleHalf = rule.split("\\|")[1];
+                if (update.indexOf(firstRuleHalf) < update.indexOf(secondRuleHalf)) {
 
+                } else {
+                    updateSplit.remove(secondRuleHalf);
+                    updateSplit.add(secondRuleHalf);
+                    //System.out.println(updateSplit.toString());
+                    update = updateSplit.toString();
+                    i = 0;
+                }
             }
 
-            break;
+            System.out.println(update);
         }
 
         // calcs part2
