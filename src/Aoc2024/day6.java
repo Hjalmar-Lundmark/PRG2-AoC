@@ -11,13 +11,13 @@ public class day6 {
         try {
             int result = 0;
             String[] board = globalFuncs.readFile("input/Aoc2024/day6.txt").split(",");
-            Point guard;
+            Point guard = new Point(0, 0, 0, 0);
             ArrayList<Point> visitedCoords = new ArrayList<>();
             Point nextCoord;
 
             for (int i = 0; i < board.length; i++) {
                 if (board[i].indexOf('^') != -1) {
-                    guard = new Point(board[i].indexOf('^'), i, 0, 0);
+                    guard = new Point(board[i].indexOf('^'), i, -1, 0);
                     break;
                 }
             }
