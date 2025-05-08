@@ -3,10 +3,14 @@ package Aoc2024;
 public class Point {
     private int x;
     private int y;
+    private int vx;
+    private int vy;
 
-    public Point(int x, int y) {
+    public Point(int x, int y, int vx, int vy) {
         this.x = x;
         this.y = y;
+        this.vx = vx;
+        this.vy = vy;
     }
 
     public int getX() {
@@ -17,33 +21,28 @@ public class Point {
         return y;
     }
 
-    public void move(Point dir) {
-        this.x += dir.getX();
-        this.y += dir.getY();
+    public void move() {
+        this.x += this.vx;
+        this.y += this.vy;
     }
 
-    public void changeDirection(String way) {
-        switch (way) {
-            case "UP" -> {
-                this.y = -1;
-                this.x = 0;
-            }
-            case "RIGHT" -> {
-                this.y = 0;
-                this.x = 1;
-            }
-            case "DOWN" -> {
-                this.y = 1;
-                this.x = 0;
-            }
-            case "LEFT" -> {
-                this.y = 0;
-                this.x = -1;
-            }
+    public void changeDirection() {
+        if (this.vx == -1 && this.vy == 0) { // if left, go up
+            this.vx = 0;
+            this.vy = -1;
+        } else if (this.vx == 0 && this.vy == -1) {
+            this.vx = 1;
+            this.vy = 0;
+        } else if (this.vx == 1 && this.vy == 0) {
+            this.vx = 0;
+            this.vy = -1;
+        } else if (this.vx == 0 && this.vy == 1) {
+            this.vx = -1;
+            this.vy = 0;
         }
     }
 
-    public Point getNextCoord(Point dir) {
-        return new Point(this.x + dir.getX(), this.y + dir.getY());
+    public Point getNextCoord() {
+        return new Point(this.x + this.vx, this.y + this.vy, 0, 0);
     }
 }
