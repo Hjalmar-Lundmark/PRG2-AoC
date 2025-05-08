@@ -14,6 +14,7 @@ public class day6 {
             Point direction = new Point(0, -1);
             Point guard;
             ArrayList<Point> visitedCoords = new ArrayList<>();
+            Point nextCoord;
 
             for (int i = 0; i < board.length; i++) {
                 if (board[i].indexOf('^') != -1) {
@@ -23,10 +24,11 @@ public class day6 {
             }
 
             while (true) {
-                if ("#" == "#") {
-                    direction.changeDirection();
-                } else if () {
+                nextCoord = guard.getNextCoord(direction);
+                if (nextCoord.getX() < 0 || ) {
                     break;
+                } else if (board[nextCoord.getY()].charAt(nextCoord.getX()) == '#') {
+                    direction.changeDirection();
                 } else {
                     guard.move(direction);
                     visitedCoords.add(new Point(guard.getX(), guard.getY()));

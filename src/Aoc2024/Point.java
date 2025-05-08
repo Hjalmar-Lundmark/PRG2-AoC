@@ -42,4 +42,8 @@ public class Point {
             }
         }
     }
+
+    public Point getNextCoord(Point dir) {
+        return new Point(this.x + dir.getX(), this.y + dir.getY());
+    }
 }
