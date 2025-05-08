@@ -25,7 +25,7 @@ public class day6 {
 
             while (true) {
                 nextCoord = guard.getNextCoord(direction);
-                if (nextCoord.getX() < 0 || ) {
+                if (nextCoord.getX() < 0 || nextCoord.getY() < 0 || nextCoord.getX() > board[0].length() || nextCoord.getY() > board.length) {
                     break;
                 } else if (board[nextCoord.getY()].charAt(nextCoord.getX()) == '#') {
                     direction.changeDirection();
@@ -33,8 +33,6 @@ public class day6 {
                     guard.move(direction);
                     visitedCoords.add(new Point(guard.getX(), guard.getY()));
                 }
-
-                break;
             }
 
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
