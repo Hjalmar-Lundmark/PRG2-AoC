@@ -1,9 +1,6 @@
 package Aoc2024;
 
-import Aoc2024.Point;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class day6 {
     public static void main(String[] args) {
