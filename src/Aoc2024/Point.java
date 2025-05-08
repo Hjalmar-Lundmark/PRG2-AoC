@@ -35,7 +35,7 @@ public class Point {
             this.vy = 0;
         } else if (this.vx == 1 && this.vy == 0) {
             this.vx = 0;
-            this.vy = -1;
+            this.vy = 1;
         } else if (this.vx == 0 && this.vy == 1) {
             this.vx = -1;
             this.vy = 0;
