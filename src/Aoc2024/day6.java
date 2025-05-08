@@ -9,7 +9,6 @@ public class day6 {
     public static void main(String[] args) {
         long time = System.currentTimeMillis();
         try {
-            int result = 0;
             String[] board = globalFuncs.readFile("input/Aoc2024/day6.txt").split(",");
             Point guard = new Point(0, 0, 0, 0);
             ArrayList<Point> visitedCoords = new ArrayList<>();
@@ -27,9 +26,7 @@ public class day6 {
 
             while (true) {
                 nextCoord = guard.getNextCoord();
-                if (nextCoord.getX() < 0 || nextCoord.getY() < 0 || nextCoord.getX() > board[0].length() || nextCoord.getY() > board.length) {
-                    System.out.println("Guard has left the area at coords " + guard.getX() + "," + guard.getY());
-                    System.out.println(nextCoord.getX() + "," + nextCoord.getY());
+                if (nextCoord.getX() < 0 || nextCoord.getY() < 0 || nextCoord.getX() >= board[0].length() || nextCoord.getY() >= board.length) {
                     break;
                 } else if (board[nextCoord.getY()].charAt(nextCoord.getX()) == '#') {
                     guard.changeDirection();
