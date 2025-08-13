@@ -8,6 +8,8 @@ public class day8 {
         try {
             String[] board = globalFuncs.readFile("input/Aoc2024/day8.txt").split(",");
             ArrayList<Point> nodes = new ArrayList<Point>();
+            int distanceBetweenX;
+            int distanceBetweenY;
 
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board[i].length(); j++) {
@@ -22,7 +24,14 @@ public class day8 {
             System.out.println(nodes);
 
             for (int i = 0; i < nodes.size(); i++) {
+                for (int j = 0; j < nodes.size(); j++) {
+                    if (i != j && nodes.get(i).getIdentifier() == nodes.get(j).getIdentifier()) {
+                        distanceBetweenX = Math.abs(nodes.get(i).getX() - nodes.get(j).getX());
+                        distanceBetweenY = Math.abs(nodes.get(i).getY() - nodes.get(j).getY());
 
+
+                    }
+                }
             }
 
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
