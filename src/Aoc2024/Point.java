@@ -5,6 +5,7 @@ public class Point {
     private int y;
     private int vx;
     private int vy;
+    private int identifier;
 
     public Point(int x, int y, int vx, int vy) {
         this.x = x;
@@ -19,6 +20,14 @@ public class Point {
 
     public int getY() {
         return y;
+    }
+
+    public int getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(int identifier) {
+        this.identifier = identifier;
     }
 
     public void move() {
