@@ -29,6 +29,11 @@ public class day8 {
                         distanceBetweenX = Math.abs(nodes.get(i).getX() - nodes.get(j).getX());
                         distanceBetweenY = Math.abs(nodes.get(i).getY() - nodes.get(j).getY());
 
+                        if (nodes.get(i).getX() + distanceBetweenX == nodes.get(j).getX() &&
+                                nodes.get(i).getY() + distanceBetweenY == nodes.get(j).getY()) {
+
+                        }
+                        Point antinode = new Point();
 
                     }
                 }
