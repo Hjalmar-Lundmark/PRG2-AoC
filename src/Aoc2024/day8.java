@@ -16,8 +16,7 @@ public class day8 {
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board[i].length(); j++) {
                     if (board[i].charAt(j) != '.') {
-                        Point currentNode = new Point(i, j, 0, 0);
-                        currentNode.setIdentifier(board[i].charAt(j));
+                        Point currentNode = new Point(j, i, 0, 0, board[i].charAt(j));
                         nodes.add(currentNode);
                     }
                 }
@@ -35,8 +34,10 @@ public class day8 {
                                 nodes.get(i).getY() + distanceBetweenY == nodes.get(j).getY()) {
                             antinodes.add(new Point(nodes.get(i).getX() - distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
                             antinodes.add(new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
-                        } else if (false) {
-
+                        } else if (nodes.get(i).getX() - distanceBetweenX == nodes.get(j).getX() &&
+                                nodes.get(i).getY() - distanceBetweenY == nodes.get(j).getY()) {
+                            antinodes.add(new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() + distanceBetweenY, 0, 0));
+                            antinodes.add(new Point(nodes.get(j).getX() - distanceBetweenX, nodes.get(j).getY() - distanceBetweenY, 0, 0));
                         }
 
                     }
@@ -51,7 +52,7 @@ public class day8 {
                     if (node.getY() == i) {
                         String newRow = "";
                         for (int j = 0; j < board[i].length(); j++) {
-                            if (node.getX() == j) {
+                            if (node.getX() == j && board[i].charAt(j) != '.') {
                                 newRow = newRow + '#';
                             } else {
                                 newRow = newRow + board[i].charAt(j);
