@@ -43,7 +43,24 @@ public class day8 {
                 }
             }
 
-            antinodes.removeIf(node -> node.getX() < 0 || node.getX() > board.length - 1 || node.getY() < 0 || node.getY() > board[0].length() - 1);
+            //TODO also check for 2 in 1 place
+            antinodes.removeIf(node -> node.getY() < 0 || node.getY() > board.length - 1 || node.getX() < 0 || node.getX() > board[0].length() - 1);
+
+            for (int i = 0; i < board.length; i++) {
+                for (Point node : antinodes) {
+                    if (node.getY() == i) {
+                        String newRow = "";
+                        for (int j = 0; j < board[i].length(); j++) {
+                            if (node.getX() == j) {
+                                newRow = newRow + '#';
+                            } else {
+                                newRow = newRow + board[i].charAt(j);
+                            }
+                        }
+                        board[i] = newRow;
+                    }
+                }
+            }
 
             for (String row: board) {
                 System.out.println(row);
