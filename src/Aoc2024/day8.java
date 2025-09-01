@@ -35,9 +35,9 @@ public class day8 {
                             antinodes.add(new Point(nodes.get(i).getX() - distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
                             antinodes.add(new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
                         } else if (nodes.get(i).getX() - distanceBetweenX == nodes.get(j).getX() &&
-                                nodes.get(i).getY() - distanceBetweenY == nodes.get(j).getY()) {
-                            antinodes.add(new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() + distanceBetweenY, 0, 0));
-                            antinodes.add(new Point(nodes.get(j).getX() - distanceBetweenX, nodes.get(j).getY() - distanceBetweenY, 0, 0));
+                                nodes.get(i).getY() + distanceBetweenY == nodes.get(j).getY()) {
+                            antinodes.add(new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
+                            antinodes.add(new Point(nodes.get(j).getX() - distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
                         }
 
                     }
@@ -52,7 +52,7 @@ public class day8 {
                     if (node.getY() == i) {
                         String newRow = "";
                         for (int j = 0; j < board[i].length(); j++) {
-                            if (node.getX() == j && board[i].charAt(j) != '.') {
+                            if (node.getX() == j && board[i].charAt(j) == '.') {
                                 newRow = newRow + '#';
                             } else {
                                 newRow = newRow + board[i].charAt(j);
@@ -68,6 +68,7 @@ public class day8 {
             }
 
             System.out.println("There are " + result + " unique locations withing the map");
+            System.out.println(antinodes.size());
 
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
         } catch (Exception e) {
