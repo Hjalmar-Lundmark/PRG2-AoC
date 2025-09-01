@@ -11,6 +11,7 @@ public class day8 {
             ArrayList<Point> antinodes = new ArrayList<Point>();
             int distanceBetweenX;
             int distanceBetweenY;
+            int result = 0;
 
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board[i].length(); j++) {
@@ -34,7 +35,7 @@ public class day8 {
                                 nodes.get(i).getY() + distanceBetweenY == nodes.get(j).getY()) {
                             antinodes.add(new Point(nodes.get(i).getX() - distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
                             antinodes.add(new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
-                        } else if () {
+                        } else if (false) {
 
                         }
 
@@ -42,7 +43,13 @@ public class day8 {
                 }
             }
 
+            antinodes.removeIf(node -> node.getX() < 0 || node.getX() > board.length - 1 || node.getY() < 0 || node.getY() > board[0].length() - 1);
 
+            for (String row: board) {
+                System.out.println(row);
+            }
+
+            System.out.println("There are " + result + " unique locations withing the map");
 
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
         } catch (Exception e) {
