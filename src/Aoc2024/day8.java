@@ -21,8 +21,6 @@ public class day8 {
                 }
             }
 
-            System.out.println(nodes);
-
             for (int i = 0; i < nodes.size(); i++) {
                 for (int j = 0; j < nodes.size(); j++) {
                     if (i != j && nodes.get(i).getIdentifier() == nodes.get(j).getIdentifier()) {
