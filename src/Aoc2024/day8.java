@@ -29,20 +29,50 @@ public class day8 {
 
                         if (nodes.get(i).getX() + distanceBetweenX == nodes.get(j).getX() &&
                                 nodes.get(i).getY() + distanceBetweenY == nodes.get(j).getY()) {
-                            antinodes.add(new Point(nodes.get(i).getX() - distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
-                            antinodes.add(new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
+                            Point antinode = new Point(nodes.get(i).getX() - distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0);
+                            while (antinode.getX() >= 0 && antinode.getX() < board[0].length() && antinode.getY() >= 0 && antinode.getY() < board.length) {
+                                antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
+                                antinode.setX(antinode.getX() - distanceBetweenX);
+                                antinode.setY(antinode.getY() - distanceBetweenY);
+                                break;
+                            }
+
+                            antinode = new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0);
+                            while (antinode.getX() >= 0 && antinode.getX() < board[0].length() && antinode.getY() >= 0 && antinode.getY() < board.length) {
+                                antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
+                                antinode.setX(antinode.getX() + distanceBetweenX);
+                                antinode.setY(antinode.getY() + distanceBetweenY);
+                                break;
+                            }
+
+                            //antinodes.add(new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
                         } else if (nodes.get(i).getX() - distanceBetweenX == nodes.get(j).getX() &&
                                 nodes.get(i).getY() + distanceBetweenY == nodes.get(j).getY()) {
-                            antinodes.add(new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
-                            antinodes.add(new Point(nodes.get(j).getX() - distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
+                            Point antinode = new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0);
+                            while (antinode.getX() >= 0 && antinode.getX() < board[0].length() && antinode.getY() >= 0 && antinode.getY() < board.length) {
+                                antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
+                                antinode.setX(antinode.getX() + distanceBetweenX);
+                                antinode.setY(antinode.getY() - distanceBetweenY);
+                                break;
+                            }
+
+
+                            antinode = new Point(nodes.get(j).getX() - distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0);
+                            while (antinode.getX() >= 0 && antinode.getX() < board[0].length() && antinode.getY() >= 0 && antinode.getY() < board.length) {
+                                antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
+                                antinode.setX(antinode.getX() - distanceBetweenX);
+                                antinode.setY(antinode.getY() + distanceBetweenY);
+                                break;
+                            }
+
+                            //antinodes.add(new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
+                            //antinodes.add(new Point(nodes.get(j).getX() - distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
                         }
 
                     }
                 }
             }
 
-            //TODO also check for 2 in 1 place
-            antinodes.removeIf(node -> node.getY() < 0 || node.getY() > board.length - 1 || node.getX() < 0 || node.getX() > board[0].length() - 1);
             for (int i = 0; i < antinodes.size(); i++) {
                 for (int j = 0; j < antinodes.size(); j++) {
                     if (i != j && antinodes.get(i).getX() == antinodes.get(j).getX() && antinodes.get(i).getY() == antinodes.get(j).getY()) {
