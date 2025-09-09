@@ -34,7 +34,6 @@ public class day8 {
                                 antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
                                 antinode.setX(antinode.getX() - distanceBetweenX);
                                 antinode.setY(antinode.getY() - distanceBetweenY);
-                                break;
                             }
 
                             antinode = new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0);
@@ -42,7 +41,6 @@ public class day8 {
                                 antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
                                 antinode.setX(antinode.getX() + distanceBetweenX);
                                 antinode.setY(antinode.getY() + distanceBetweenY);
-                                break;
                             }
 
                             //antinodes.add(new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
@@ -53,7 +51,6 @@ public class day8 {
                                 antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
                                 antinode.setX(antinode.getX() + distanceBetweenX);
                                 antinode.setY(antinode.getY() - distanceBetweenY);
-                                break;
                             }
 
 
@@ -62,7 +59,6 @@ public class day8 {
                                 antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
                                 antinode.setX(antinode.getX() - distanceBetweenX);
                                 antinode.setY(antinode.getY() + distanceBetweenY);
-                                break;
                             }
 
                             //antinodes.add(new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
