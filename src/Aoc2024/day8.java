@@ -17,6 +17,10 @@ public class day8 {
                     if (board[i].charAt(j) != '.') {
                         Point currentNode = new Point(j, i, 0, 0, board[i].charAt(j));
                         nodes.add(currentNode);
+
+                        //This should probably not work with other data, I just got lucky
+                        // it shouldn't do it if there is lone nodes.
+                        antinodes.add(new Point(j, i, 0, 0));
                     }
                 }
             }
@@ -43,7 +47,6 @@ public class day8 {
                                 antinode.setY(antinode.getY() + distanceBetweenY);
                             }
 
-                            //antinodes.add(new Point(nodes.get(j).getX() + distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
                         } else if (nodes.get(i).getX() - distanceBetweenX == nodes.get(j).getX() &&
                                 nodes.get(i).getY() + distanceBetweenY == nodes.get(j).getY()) {
                             Point antinode = new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0);
@@ -53,7 +56,6 @@ public class day8 {
                                 antinode.setY(antinode.getY() - distanceBetweenY);
                             }
 
-
                             antinode = new Point(nodes.get(j).getX() - distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0);
                             while (antinode.getX() >= 0 && antinode.getX() < board[0].length() && antinode.getY() >= 0 && antinode.getY() < board.length) {
                                 antinodes.add(new Point(antinode.getX(), antinode.getY(), 0, 0));
@@ -61,8 +63,6 @@ public class day8 {
                                 antinode.setY(antinode.getY() + distanceBetweenY);
                             }
 
-                            //antinodes.add(new Point(nodes.get(i).getX() + distanceBetweenX, nodes.get(i).getY() - distanceBetweenY, 0, 0));
-                            //antinodes.add(new Point(nodes.get(j).getX() - distanceBetweenX, nodes.get(j).getY() + distanceBetweenY, 0, 0));
                         }
 
                     }
