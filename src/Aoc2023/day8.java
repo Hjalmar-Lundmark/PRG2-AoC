@@ -27,9 +27,11 @@ public class day8 {
             }
 
             for (int i = 0; true; i++) {
-                System.out.println(i);
-                System.out.println(i % orders.length());
-                switch (orders.charAt(i - (i % orders.length()))) {
+                if (i > orders.length()-1) {
+                    i -= orders.length();
+                }
+
+                switch (orders.charAt(i)) {
                     case 'L': {
                         currentPosition = findNode(nodes, currentPosition.getLeft());
                     }
@@ -39,7 +41,8 @@ public class day8 {
                 }
 
                 steps++;
-                if (currentPosition.getPosition() == "ZZZ") {
+                System.out.println(currentPosition.getPosition());
+                if (Objects.equals(currentPosition.getPosition(), "ZZZ")) {
                     break;
                 }
             }
