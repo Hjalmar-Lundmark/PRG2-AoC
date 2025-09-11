@@ -16,9 +16,10 @@ public class day8 {
             Node currentPosition;
 
             for (String p : positions) {
-                nodes.add(new Node(p.split(" =")[0], p.split("\\(")[1].split(",")[0], p.split(",")[1].split("\\)")[0]));
+                nodes.add(new Node(p.split(" =")[0], p.split("\\(")[1].split(",")[0], p.split(", ")[1].split("\\)")[0]));
             }
             System.out.println(nodes.get(0).toString());
+            System.out.println(nodes.size());
 
             for (Node n : nodes) {
                 if (Objects.equals(n.getPosition(), "AAA")) {
@@ -28,11 +29,13 @@ public class day8 {
 
             currentPosition = start;
             for (int i = 0; true; i++) {
-                switch (orders.charAt(i)) {
-                    case 'L' : {
+                System.out.println(i);
+                System.out.println(i % orders.length());
+                switch (orders.charAt(i - i % orders.length())) {
+                    case 'L': {
                         currentPosition = findNode(nodes, currentPosition.getLeft());
                     }
-                    case 'R' : {
+                    case 'R': {
                         currentPosition = findNode(nodes, currentPosition.getRight());
                     }
                 }
@@ -54,7 +57,7 @@ public class day8 {
 
     public static Node findNode(ArrayList<Node> nodes, String newNode) {
         for (Node n : nodes) {
-            if (n.getPosition() == newNode) {
+            if (Objects.equals(n.getPosition(), newNode)) {
                 return n;
             }
         }
