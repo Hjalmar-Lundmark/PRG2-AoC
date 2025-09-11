@@ -13,6 +13,7 @@ public class day8 {
             int steps = 0;
             ArrayList<Node> nodes = new ArrayList<Node>();
             Node start = new Node("","","");
+            Node currentPosition;
 
             for (String p : positions) {
                 nodes.add(new Node(p.split(" = ")[0], p.split("\\(")[1].split(",")[0], p.split(",")[1].split("\\)")[0]));
@@ -25,9 +26,8 @@ public class day8 {
                 }
             }
 
-            System.out.println(start.toString());
-
-            while (true) {
+            currentPosition = start;
+            for (int i = 0; true; i++) {
 
 
                 steps++;
