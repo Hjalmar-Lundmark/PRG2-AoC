@@ -17,8 +17,6 @@ public class day8 {
             for (String p : positions) {
                 nodes.add(new Node(p.split(" =")[0], p.split("\\(")[1].split(",")[0], p.split(", ")[1].split("\\)")[0]));
             }
-            System.out.println(nodes.get(0).toString());
-            System.out.println(nodes.size());
 
             for (Node n : nodes) {
                 if (Objects.equals(n.getPosition(), "AAA")) {
@@ -31,17 +29,22 @@ public class day8 {
                     i -= orders.length();
                 }
 
-                switch (orders.charAt(i)) {
+                if (orders.charAt(i) == 'L') {
+                    currentPosition = findNode(nodes, currentPosition.getLeft());
+                } else {
+                    currentPosition = findNode(nodes, currentPosition.getRight());
+                }
+
+                /* switch (orders.charAt(i)) {
                     case 'L': {
                         currentPosition = findNode(nodes, currentPosition.getLeft());
                     }
                     case 'R': {
                         currentPosition = findNode(nodes, currentPosition.getRight());
                     }
-                }
+                } */
 
                 steps++;
-                System.out.println(currentPosition.getPosition());
                 if (Objects.equals(currentPosition.getPosition(), "ZZZ")) {
                     break;
                 }
