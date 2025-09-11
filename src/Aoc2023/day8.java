@@ -16,7 +16,7 @@ public class day8 {
             Node currentPosition;
 
             for (String p : positions) {
-                nodes.add(new Node(p.split(" = ")[0], p.split("\\(")[1].split(",")[0], p.split(",")[1].split("\\)")[0]));
+                nodes.add(new Node(p.split(" =")[0], p.split("\\(")[1].split(",")[0], p.split(",")[1].split("\\)")[0]));
             }
             System.out.println(nodes.get(0).toString());
 
@@ -28,10 +28,17 @@ public class day8 {
 
             currentPosition = start;
             for (int i = 0; true; i++) {
-
+                switch (orders.charAt(i)) {
+                    case 'L' : {
+                        currentPosition = findNode(nodes, currentPosition.getLeft());
+                    }
+                    case 'R' : {
+                        currentPosition = findNode(nodes, currentPosition.getRight());
+                    }
+                }
 
                 steps++;
-                if (true) {
+                if (currentPosition.getPosition() == "ZZZ") {
                     break;
                 }
             }
@@ -43,5 +50,14 @@ public class day8 {
             System.out.println(e);
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
         }
+    }
+
+    public static Node findNode(ArrayList<Node> nodes, String newNode) {
+        for (Node n : nodes) {
+            if (n.getPosition() == newNode) {
+                return n;
+            }
+        }
+        throw new NullPointerException("Couldn't find next position");
     }
 }
