@@ -12,38 +12,50 @@ public class day8 {
             String[] positions = in.split("start\n")[1].split("\n");
             int steps = 0;
             ArrayList<Node> nodes = new ArrayList<Node>();
-            Node currentPosition = new Node("","","");
+            //Node currentPosition = new Node("","","");
             ArrayList<Node> currentPositions = new ArrayList<>();
             int startingPositions = 0;
+            boolean part2 = true;
 
             for (String p : positions) {
                 nodes.add(new Node(p.split(" =")[0], p.split("\\(")[1].split(",")[0], p.split(", ")[1].split("\\)")[0]));
             }
 
-            for (Node n : nodes) {
-                if (n.getPosition().endsWith("A")) {
-                    startingPositions++;
-                    currentPositions.add(n);
-                }
 
-                if (Objects.equals(n.getPosition(), "AAA")) {
-                    currentPosition = n;
+            if (part2) {
+                for (Node n : nodes) {
+                    if (n.getPosition().endsWith("A")) {
+                        startingPositions++;
+                        currentPositions.add(n);
+                    }
+                }
+            } else {
+                for (Node n : nodes) {
+                    if (Objects.equals(n.getPosition(), "AAA")) {
+                        currentPositions.add(n);
+                    }
                 }
             }
 
             for (int i = 0; true; i++) {
-                if (i > orders.length()-1) {
-                    i -= orders.length();
-                }
+                for (int j = 0; j < currentPositions.size(); j++) {
+                    if (i > orders.length() - 1) {
+                        i -= orders.length();
+                    }
 
-                if (orders.charAt(i) == 'L') {
-                    currentPosition = findNode(nodes, currentPosition.getLeft());
-                } else {
-                    currentPosition = findNode(nodes, currentPosition.getRight());
-                }
+                    if (orders.charAt(i) == 'L') {
+                        currentPositions.set(j, findNode(nodes, currentPositions.get(j).getLeft()));
+                    } else {
+                        currentPositions.set(j, findNode(nodes, currentPositions.get(j).getRight()));
+                    }
 
+                    if (currentPositions.get(j).getPosition().endsWith("Z")) {
+                        currentPositions.remove(j);
+                    }
+                }
                 steps++;
-                if (Objects.equals(currentPosition.getPosition(), "ZZZ")) {
+
+                if (currentPositions.isEmpty()) {
                     break;
                 }
             }
