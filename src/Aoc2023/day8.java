@@ -13,12 +13,19 @@ public class day8 {
             int steps = 0;
             ArrayList<Node> nodes = new ArrayList<Node>();
             Node currentPosition = new Node("","","");
+            ArrayList<Node> currentPositions = new ArrayList<>();
+            int startingPositions = 0;
 
             for (String p : positions) {
                 nodes.add(new Node(p.split(" =")[0], p.split("\\(")[1].split(",")[0], p.split(", ")[1].split("\\)")[0]));
             }
 
             for (Node n : nodes) {
+                if (n.getPosition().endsWith("A")) {
+                    startingPositions++;
+                    currentPositions.add(n);
+                }
+
                 if (Objects.equals(n.getPosition(), "AAA")) {
                     currentPosition = n;
                 }
@@ -35,15 +42,6 @@ public class day8 {
                     currentPosition = findNode(nodes, currentPosition.getRight());
                 }
 
-                /* switch (orders.charAt(i)) {
-                    case 'L': {
-                        currentPosition = findNode(nodes, currentPosition.getLeft());
-                    }
-                    case 'R': {
-                        currentPosition = findNode(nodes, currentPosition.getRight());
-                    }
-                } */
-
                 steps++;
                 if (Objects.equals(currentPosition.getPosition(), "ZZZ")) {
                     break;
@@ -51,6 +49,8 @@ public class day8 {
             }
 
             System.out.println(steps + " steps to reach ZZZ");
+
+            System.out.println(startingPositions);
 
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
         } catch (Exception e) {
