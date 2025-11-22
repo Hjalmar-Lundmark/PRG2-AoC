@@ -49,8 +49,14 @@ public class day8 {
                         currentPositions.set(j, findNode(nodes, currentPositions.get(j).getRight()));
                     }
 
-                    if (currentPositions.get(j).getPosition().endsWith("Z")) {
-                        currentPositions.remove(j);
+                    if (part2) {
+                        if (currentPositions.get(j).getPosition().endsWith("Z")) {
+                            currentPositions.remove(j);
+                        }
+                    } else {
+                        if (currentPositions.get(j).getPosition().endsWith("ZZZ")) {
+                            currentPositions.remove(j);
+                        }
                     }
                 }
                 steps++;
@@ -60,7 +66,7 @@ public class day8 {
                 }
             }
 
-            System.out.println(steps + " steps to reach ZZZ");
+            System.out.println(steps + " steps to reach the target");
 
             System.out.println(startingPositions);
 
