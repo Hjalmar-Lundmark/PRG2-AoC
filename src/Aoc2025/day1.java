@@ -13,21 +13,25 @@ public class day1 {
 
             for (String row : instructions) {
                 if (row.charAt(0) == 'R') {
-                    currentNr += Integer.parseInt(row.split("R")[1]);
-                    while (currentNr > 99) {
-                        currentNr -= 100;
-                        result++;
+                    for (int i = 0; i < Integer.parseInt(row.split("R")[1]); i++) {
+                        currentNr++;
+                        if (currentNr == 100) {
+                            currentNr = 0;
+                        }
+                        if (currentNr == 0) {
+                            result++;
+                        }
                     }
                 } else {
-                    currentNr -= Integer.parseInt(row.split("L")[1]);
-                    while (currentNr < 0) {
-                        currentNr += 100;
-                        result++;
+                    for (int i = 0; i < Integer.parseInt(row.split("L")[1]); i++) {
+                        currentNr--;
+                        if (currentNr == -1) {
+                            currentNr = 99;
+                        }
+                        if (currentNr == 0) {
+                            result++;
+                        }
                     }
-                }
-
-                if (currentNr == 0) {
-                    result++;
                 }
             }
 
