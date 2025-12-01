@@ -13,18 +13,20 @@ public class day1 {
 
             for (String row : instructions) {
                 if (row.charAt(0) == 'R') {
-                    currentNr += Integer.parseInt(row);
+                    currentNr += Integer.parseInt(row.split("R")[1]);
                     while (currentNr > 99) {
                         currentNr -= 100;
                     }
                 } else {
-                    currentNr -= Integer.parseInt(row);
+                    currentNr -= Integer.parseInt(row.split("L")[1]);
                     while (currentNr < 0) {
                         currentNr += 100;
                     }
                 }
 
-
+                if (currentNr == 0) {
+                    result++;
+                }
             }
 
 
