@@ -9,10 +9,26 @@ public class day1 {
             int result = 0;
             int currentNr = 50;
             String in = globalFuncs.readFile("input/Aoc2025/day1.txt");
-            System.out.println(in);
+            String[] instructions = in.split("\n");
+
+            for (String row : instructions) {
+                if (row.charAt(0) == 'R') {
+                    currentNr += Integer.parseInt(row);
+                    while (currentNr > 99) {
+                        currentNr -= 100;
+                    }
+                } else {
+                    currentNr -= Integer.parseInt(row);
+                    while (currentNr < 0) {
+                        currentNr += 100;
+                    }
+                }
 
 
+            }
 
+
+            System.out.println(result);
 
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
         } catch (Exception e) {
