@@ -16,11 +16,13 @@ public class day1 {
                     currentNr += Integer.parseInt(row.split("R")[1]);
                     while (currentNr > 99) {
                         currentNr -= 100;
+                        result++;
                     }
                 } else {
                     currentNr -= Integer.parseInt(row.split("L")[1]);
                     while (currentNr < 0) {
                         currentNr += 100;
+                        result++;
                     }
                 }
 
