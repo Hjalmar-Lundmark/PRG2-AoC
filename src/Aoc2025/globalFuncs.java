@@ -28,27 +28,4 @@ public class globalFuncs {
         }
         return meddelande;
     }
-
-    public static String[] removeItem(String[] array, int index) {
-        //System.out.println("RemoveItem called");
-        String[] newArray = new String[array.length -1];
-        for(int i = 0, k = 0; i < array.length; i++){
-            if(i != index) {
-                newArray[k] = array[i];
-                k++;
-            }
-        }
-        //System.out.println(Arrays.toString(array));
-        //System.out.println(Arrays.toString(newArray));
-
-        return newArray;
-    }
-
-    public static String reverse(String in) {
-        String reversed = "";
-        for (int i = 0; i < in.length(); i++) {
-            reversed = in.charAt(i) + reversed;
-        }
-        return reversed;
-    }
 }
