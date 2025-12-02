@@ -10,13 +10,13 @@ public class day2 {
         try {
             String in = globalFuncs.readFile("input/Aoc2025/day2.txt").split("\n")[0];
             String[] database = in.split(",");
-            int firstId = 0;
-            int secondId = 0;
-            int result = 0;
+            long firstId = 0;
+            long secondId = 0;
+            long result = 0;
 
             for (String id : database) {
-                firstId = Integer.parseInt(id.split("-")[0]);
-                secondId = Integer.parseInt(id.split("-")[1]);
+                firstId = Long.parseLong(id.split("-")[0]);
+                secondId = Long.parseLong(id.split("-")[1]);
 
                 for (int i = 0; i < secondId-firstId+1; i++) {
                     if (isRepeating(firstId+i)) {
@@ -33,30 +33,27 @@ public class day2 {
         }
     }
 
-    public static boolean isRepeating(int e) {
+    public static boolean isRepeating(long e) {
         String s = e + "";
         if (s.length() > 1) {
 
             // checks if every number is the same
-            int temp = Integer.parseInt(String.valueOf(s.charAt(0)));
-            for (int i = 1; i < s.length(); i++) {
-                if (temp != Integer.parseInt(String.valueOf(s.charAt(i)))) {
-                    break;
-                }
-
-                if (i == s.length()-1) {
-                    return true;
-                }
-            }
+//            int temp = Integer.parseInt(String.valueOf(s.charAt(0)));
+//            for (int i = 1; i < s.length(); i++) {
+//                if (temp != Integer.parseInt(String.valueOf(s.charAt(i)))) {
+//                    break;
+//                }
+//
+//                if (i == s.length()-1) {
+//                    return true;
+//                }
+//            }
 
             // checks if first half is equal to second half
             if (s.length() % 2 == 0) {
-                int firstHalf = Integer.parseInt(s.substring(0, s.length() / 2));
-                int secondHalf = Integer.parseInt(s.substring(s.length() / 2));
-                if (firstHalf == secondHalf) {
-                    return true;
-                }
-
+                long firstHalf = Long.parseLong(s.substring(0, s.length() / 2));
+                long secondHalf = Long.parseLong(s.substring(s.length() / 2));
+                return firstHalf == secondHalf;
             }
         }
 
