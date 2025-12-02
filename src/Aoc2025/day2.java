@@ -8,7 +8,7 @@ public class day2 {
     public static void main(String[] args) {
         long time = System.currentTimeMillis();
         try {
-            String in = globalFuncs.readFile("input/Aoc2025/day2.txt").split("\n")[0];
+            String in = "824824821-824824827"; //globalFuncs.readFile("input/Aoc2025/day2.txt").split("\n")[0];
             String[] database = in.split(",");
             long firstId = 0;
             long secondId = 0;
@@ -67,15 +67,17 @@ public class day2 {
                     break;
                 }
             }
-            for (int i = 0; i < (s.length()/String.valueOf(newTemp).length()); i++) {
-                String next = s.substring(s.charAt(String.valueOf(newTemp).length()), s.charAt(String.valueOf(newTemp).length()*2));
-                System.out.println(next);
-                if (newTemp != Integer.parseInt(next)) {
-                    break;
-                }
+            if (newTemp > 9) {
+                for (int i = 0; i < (s.length() / String.valueOf(newTemp).length()); i++) {
+                    String next = s.substring(String.valueOf(newTemp).length(), String.valueOf(newTemp).length() * 2);
+                    System.out.println(next);
+                    if (newTemp != Integer.parseInt(next)) {
+                        break;
+                    }
 
-                if (i == 100) {
-                    return true;
+                    if (i == 100) {
+                        return true;
+                    }
                 }
             }
 
