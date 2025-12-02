@@ -67,6 +67,17 @@ public class day2 {
                     break;
                 }
             }
+            for (int i = 0; i < (s.length()/String.valueOf(newTemp).length()); i++) {
+                String next = s.substring(s.charAt(String.valueOf(newTemp).length()), s.charAt(String.valueOf(newTemp).length()*2));
+                System.out.println(next);
+                if (newTemp != Integer.parseInt(next)) {
+                    break;
+                }
+
+                if (i == 100) {
+                    return true;
+                }
+            }
 
         }
 
