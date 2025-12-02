@@ -18,7 +18,7 @@ public class day2 {
                 firstId = Integer.parseInt(id.split("-")[0]);
                 secondId = Integer.parseInt(id.split("-")[1]);
 
-                for (int i = 0; i < secondId-firstId; i++) {
+                for (int i = 0; i < secondId-firstId+1; i++) {
                     if (isRepeating(firstId+i)) {
                         result += firstId+i;
                     }
@@ -49,7 +49,15 @@ public class day2 {
                 }
             }
 
+            // checks if first half is equal to second half
+            if (s.length() % 2 == 0) {
+                int firstHalf = Integer.parseInt(s.substring(0, s.length() / 2));
+                int secondHalf = Integer.parseInt(s.substring(s.length() / 2));
+                if (firstHalf == secondHalf) {
+                    return true;
+                }
 
+            }
         }
 
 
