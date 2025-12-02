@@ -36,25 +36,36 @@ public class day2 {
     public static boolean isRepeating(long e) {
         String s = e + "";
         if (s.length() > 1) {
-
-            // checks if every number is the same
-//            int temp = Integer.parseInt(String.valueOf(s.charAt(0)));
-//            for (int i = 1; i < s.length(); i++) {
-//                if (temp != Integer.parseInt(String.valueOf(s.charAt(i)))) {
-//                    break;
-//                }
-//
-//                if (i == s.length()-1) {
-//                    return true;
-//                }
-//            }
-
-            // checks if first half is equal to second half
+            // checks if first half is equal to second half, part1
             if (s.length() % 2 == 0) {
                 long firstHalf = Long.parseLong(s.substring(0, s.length() / 2));
                 long secondHalf = Long.parseLong(s.substring(s.length() / 2));
                 return firstHalf == secondHalf;
             }
+
+            // checks if every number is the same, part2
+            int temp = Integer.parseInt(String.valueOf(s.charAt(0)));
+            for (int i = 1; i < s.length(); i++) {
+                if (temp != Integer.parseInt(String.valueOf(s.charAt(i)))) {
+                    break;
+                }
+
+                if (i == s.length()-1) {
+                    return true;
+                }
+            }
+
+            // finds repeating consecutive number
+            int newTemp;
+            for (int i = 1;; i++) {
+                if (temp+i == Integer.parseInt(String.valueOf(s.charAt(i)))) { // temp broken?
+                    newTemp = Integer.parseInt(temp + "" + (temp+i));
+                    System.out.println(newTemp);
+                } else {
+                    break;
+                }
+            }
+
         }
 
 
