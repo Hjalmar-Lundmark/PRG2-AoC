@@ -13,7 +13,6 @@ public class day2 {
             int firstId = 0;
             int secondId = 0;
             int result = 0;
-            System.out.println(Arrays.toString(database));
 
             for (String id : database) {
                 firstId = Integer.parseInt(id.split("-")[0]);
@@ -23,7 +22,6 @@ public class day2 {
                     if (isRepeating(firstId+i)) {
                         result += firstId+i;
                     }
-
                 }
             }
 
@@ -36,6 +34,25 @@ public class day2 {
     }
 
     public static boolean isRepeating(int e) {
+        String s = e + "";
+        if (s.length() > 1) {
+
+            // checks if every number is the same
+            int temp = Integer.parseInt(String.valueOf(s.charAt(0)));
+            for (int i = 1; i < s.length(); i++) {
+                if (temp != Integer.parseInt(String.valueOf(s.charAt(i)))) {
+                    break;
+                }
+
+                if (i == s.length()-1) {
+                    return true;
+                }
+            }
+
+
+        }
+
+
         return false;
     }
 }
