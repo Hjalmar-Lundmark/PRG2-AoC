@@ -40,7 +40,9 @@ public class day2 {
             if (s.length() % 2 == 0) {
                 long firstHalf = Long.parseLong(s.substring(0, s.length() / 2));
                 long secondHalf = Long.parseLong(s.substring(s.length() / 2));
-                return firstHalf == secondHalf;
+                if (firstHalf == secondHalf) {
+                    return true;
+                }
             }
 
             // checks if every number is the same, part2
@@ -56,10 +58,10 @@ public class day2 {
             }
 
             // finds repeating consecutive number
-            int newTemp;
-            for (int i = 1;; i++) {
+            int newTemp = temp;
+            for (int i = 1; i < s.length(); i++) {
                 if (temp+i == Integer.parseInt(String.valueOf(s.charAt(i)))) { // temp broken?
-                    newTemp = Integer.parseInt(temp + "" + (temp+i));
+                    newTemp = Integer.parseInt(newTemp + "" + (temp+i));
                     System.out.println(newTemp);
                 } else {
                     break;
