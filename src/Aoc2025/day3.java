@@ -11,16 +11,25 @@ public class day3 {
             int result = 0;
             int firstNr;
             int secondNr;
+            String secondPartOfBank;
+            int firstNrPos;
 
             System.out.println(Arrays.toString(banks));
             for (String bank : banks) {
                 firstNr = 0;
+                firstNrPos = 0;
                 for (int i = 0; i < bank.length() - 1; i++) {
                     if (Integer.parseInt(String.valueOf(bank.charAt(i))) > firstNr) {
                         firstNr = Integer.parseInt(String.valueOf(bank.charAt(i)));
+                        firstNrPos = i;
+                    }
+
+                    if (i == bank.length()-2) {
+                        secondPartOfBank = bank.substring(firstNrPos+1, bank.length());
+                        System.out.println(secondPartOfBank);
                     }
                 }
-                System.out.println(firstNr);
+                //System.out.println(firstNr);
 
 
             }
