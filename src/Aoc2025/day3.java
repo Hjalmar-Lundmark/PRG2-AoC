@@ -11,13 +11,14 @@ public class day3 {
             int result = 0;
             int firstNr;
             int secondNr;
-            String secondPartOfBank;
+            String secondPartOfBank = "";
             int firstNrPos;
 
             System.out.println(Arrays.toString(banks));
             for (String bank : banks) {
                 firstNr = 0;
                 firstNrPos = 0;
+                secondNr = 0;
                 for (int i = 0; i < bank.length() - 1; i++) {
                     if (Integer.parseInt(String.valueOf(bank.charAt(i))) > firstNr) {
                         firstNr = Integer.parseInt(String.valueOf(bank.charAt(i)));
@@ -25,16 +26,22 @@ public class day3 {
                     }
 
                     if (i == bank.length()-2) {
-                        secondPartOfBank = bank.substring(firstNrPos+1, bank.length());
+                        secondPartOfBank = bank.substring(firstNrPos+1);
                         System.out.println(secondPartOfBank);
                     }
                 }
-                //System.out.println(firstNr);
 
+                for (int i = 0; i < secondPartOfBank.length(); i++) {
+                    if (Integer.parseInt(String.valueOf(secondPartOfBank.charAt(i))) > secondNr) {
+                        secondNr = Integer.parseInt(String.valueOf(secondPartOfBank.charAt(i)));
+                    }
+                }
 
+                System.out.println(result);
+                result += Integer.parseInt(firstNr + "" + secondNr);
             }
 
-
+            System.out.println(result);
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
         } catch (Exception e) {
             System.out.println(e);
