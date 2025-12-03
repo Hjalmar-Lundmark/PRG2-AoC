@@ -14,7 +14,6 @@ public class day3 {
             String secondPartOfBank = "";
             int firstNrPos;
 
-            System.out.println(Arrays.toString(banks));
             for (String bank : banks) {
                 firstNr = 0;
                 firstNrPos = 0;
@@ -27,7 +26,6 @@ public class day3 {
 
                     if (i == bank.length()-2) {
                         secondPartOfBank = bank.substring(firstNrPos+1);
-                        System.out.println(secondPartOfBank);
                     }
                 }
 
@@ -37,7 +35,6 @@ public class day3 {
                     }
                 }
 
-                System.out.println(result);
                 result += Integer.parseInt(firstNr + "" + secondNr);
             }
 
