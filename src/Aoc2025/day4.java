@@ -1,11 +1,14 @@
 package Aoc2025;
 
+import java.util.Arrays;
+
 public class day4 {
     public static void main(String[] args) {
         long time = System.currentTimeMillis();
         try {
             String in = globalFuncs.readFile("input/Aoc2025/day4.txt");
             String[] rows = in.split("\n");
+            String[] copy = in.split("\n");
             int result = 0;
 
             for (int i = 0; i < rows.length; i++) {
@@ -13,9 +16,11 @@ public class day4 {
                     if (rows[i].charAt(j) == '@') {
                         if (countNeighbors(j, i, rows) < 4) {
                             result++;
+                            copy[i] = copy[i].substring(0, j) + '.' + copy[i].substring(j+1);
                         }
                     }
                 }
+                System.out.println(copy[i]);
             }
 
 
