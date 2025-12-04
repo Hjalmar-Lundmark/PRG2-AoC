@@ -11,7 +11,7 @@ public class day4 {
             for (int i = 0; i < rows.length; i++) {
                 for (int j = 0; j < rows[i].length(); j++) {
                     if (rows[i].charAt(j) == '@') {
-                        if (countNeighbors(j, i, rows) < 5) {
+                        if (countNeighbors(j, i, rows) < 4) {
                             result++;
                         }
                     }
