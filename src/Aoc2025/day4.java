@@ -10,8 +10,10 @@ public class day4 {
 
             for (int i = 0; i < rows.length; i++) {
                 for (int j = 0; j < rows[i].length(); j++) {
-                    if (countNeighbors(j, i, rows) < 5) {
-                        result++;
+                    if (rows[i].charAt(j) == '@') {
+                        if (countNeighbors(j, i, rows) < 5) {
+                            result++;
+                        }
                     }
                 }
             }
@@ -31,45 +33,45 @@ public class day4 {
         int height = rows.length;
 
         if (x+1 < width) {
-            if (rows[y].charAt(x) == '@') {
+            if (rows[y].charAt(x+1) == '@') {
                 neighbors++;
             }
         }
         if (x-1 >= 0) {
-            if (rows[y].charAt(x) == '@') {
+            if (rows[y].charAt(x-1) == '@') {
                 neighbors++;
             }
         }
 
         if (y+1 < height) {
-            if (rows[y].charAt(x) == '@') {
+            if (rows[y+1].charAt(x) == '@') {
                 neighbors++;
             }
         }
         if (y-1 >= 0) {
-            if (rows[y].charAt(x) == '@') {
+            if (rows[y-1].charAt(x) == '@') {
                 neighbors++;
             }
         }
 
         if (x+1 < width && y+1 < height) {
-            if (rows[y].charAt(x) == '@') {
+            if (rows[y+1].charAt(x+1) == '@') {
                 neighbors++;
             }
         }
         if (x-1 >= 0 && y-1 >= 0) {
-            if (rows[y].charAt(x) == '@') {
+            if (rows[y-1].charAt(x-1) == '@') {
                 neighbors++;
             }
         }
 
         if (x+1 < width && y-1 >= 0) {
-            if (rows[y].charAt(x) == '@') {
+            if (rows[y-1].charAt(x+1) == '@') {
                 neighbors++;
             }
         }
         if (x-1 >= 0 && y+1 < height) {
-            if (rows[y].charAt(x) == '@') {
+            if (rows[y+1].charAt(x-1) == '@') {
                 neighbors++;
             }
         }
