@@ -10,7 +10,7 @@ public class day4 {
 
             for (int i = 0; i < rows.length; i++) {
                 for (int j = 0; j < rows[i].length(); j++) {
-                    if (countNeighbors(j, i, rows[i].length(), rows.length, rows[i].charAt(j)) < 5) {
+                    if (countNeighbors(j, i, rows) < 5) {
                         result++;
                     }
                 }
@@ -25,27 +25,51 @@ public class day4 {
         }
     }
 
-    public static int countNeighbors(int x, int y, int width, int height, char content) {
+    public static int countNeighbors(int x, int y, String[] rows) {
         int neighbors = 0;
+        int width = rows[y].length();
+        int height = rows.length;
 
         if (x+1 < width) {
-            if (content == '@') {
+            if (rows[y].charAt(x) == '@') {
                 neighbors++;
             }
         }
         if (x-1 >= 0) {
-            if (content == '@') {
+            if (rows[y].charAt(x) == '@') {
                 neighbors++;
             }
         }
 
         if (y+1 < height) {
-            if (content == '@') {
+            if (rows[y].charAt(x) == '@') {
                 neighbors++;
             }
         }
         if (y-1 >= 0) {
-            if (content == '@') {
+            if (rows[y].charAt(x) == '@') {
+                neighbors++;
+            }
+        }
+
+        if (x+1 < width && y+1 < height) {
+            if (rows[y].charAt(x) == '@') {
+                neighbors++;
+            }
+        }
+        if (x-1 >= 0 && y-1 >= 0) {
+            if (rows[y].charAt(x) == '@') {
+                neighbors++;
+            }
+        }
+
+        if (x+1 < width && y-1 >= 0) {
+            if (rows[y].charAt(x) == '@') {
+                neighbors++;
+            }
+        }
+        if (x-1 >= 0 && y+1 < height) {
+            if (rows[y].charAt(x) == '@') {
                 neighbors++;
             }
         }
