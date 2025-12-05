@@ -11,17 +11,17 @@ public class day5 {
             String[] idRanges = in.split("start")[0].split("\n");
             String[] ids = in.split("start\n")[1].split("\n");
             int result = 0;
-            ArrayList<Integer> validIds = new ArrayList<>();
+            ArrayList<Long> validIds = new ArrayList<>();
 
 
             System.out.println(Arrays.toString(idRanges));
             System.out.println(Arrays.toString(ids));
 
             for (String range : idRanges) {
-                int startNr = Integer.parseInt(range.split("-")[0]);
-                int endNr = Integer.parseInt(range.split("-")[1]);
+                long startNr = Long.parseLong(range.split("-")[0]);
+                long endNr = Long.parseLong(range.split("-")[1]);
 
-                for (int i = startNr; i < endNr+1; i++) {
+                for (long i = startNr; i < endNr+1; i++) {
                     if (!validIds.contains(i)) {
                         validIds.add(i);
                     }
@@ -30,7 +30,7 @@ public class day5 {
 
             System.out.println(validIds);
             for (String id : ids) {
-                int ID = Integer.parseInt(id);
+                long ID = Long.parseLong(id);
                 if (validIds.contains(ID)) {
                     System.out.println(ID + " is fresh");
                     result++;
