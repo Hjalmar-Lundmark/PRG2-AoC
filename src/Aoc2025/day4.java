@@ -10,17 +10,26 @@ public class day4 {
             String[] rows = in.split("\n");
             String[] copy = in.split("\n");
             int result = 0;
+            int removedThisTurn;
 
-            for (int i = 0; i < rows.length; i++) {
-                for (int j = 0; j < rows[i].length(); j++) {
-                    if (rows[i].charAt(j) == '@') {
-                        if (countNeighbors(j, i, rows) < 4) {
-                            result++;
-                            copy[i] = copy[i].substring(0, j) + '.' + copy[i].substring(j+1);
+            while (true) {
+                removedThisTurn = 0;
+                for (int i = 0; i < rows.length; i++) {
+                    for (int j = 0; j < rows[i].length(); j++) {
+                        if (rows[i].charAt(j) == '@') {
+                            if (countNeighbors(j, i, rows) < 4) {
+                                result++;
+                                removedThisTurn++;
+                                copy[i] = copy[i].substring(0, j) + '.' + copy[i].substring(j + 1);
+                            }
                         }
                     }
                 }
-                System.out.println(copy[i]);
+                rows = copy;
+
+                if (removedThisTurn == 0) {
+                    break;
+                }
             }
 
 
