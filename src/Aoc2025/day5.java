@@ -22,10 +22,9 @@ public class day5 {
                 long endNr = Long.parseLong(range.split("-")[1]);
 
                 for (long i = startNr; i < endNr+1; i++) {
-                    if (!validIds.contains(i)) {
-                        validIds.add(i);
-                    }
+                    validIds.add(i);
                 }
+                System.out.println("One row");
             }
 
             System.out.println(validIds);
