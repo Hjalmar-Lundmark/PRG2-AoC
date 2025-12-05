@@ -11,28 +11,18 @@ public class day5 {
             String[] idRanges = in.split("start")[0].split("\n");
             String[] ids = in.split("start\n")[1].split("\n");
             int result = 0;
-            ArrayList<Long> validIds = new ArrayList<>();
-
 
             System.out.println(Arrays.toString(idRanges));
             System.out.println(Arrays.toString(ids));
 
-            for (String range : idRanges) {
-                long startNr = Long.parseLong(range.split("-")[0]);
-                long endNr = Long.parseLong(range.split("-")[1]);
-
-                for (long i = startNr; i < endNr+1; i++) {
-                    validIds.add(i);
-                }
-                System.out.println("One row");
-            }
-
-            System.out.println(validIds);
             for (String id : ids) {
                 long ID = Long.parseLong(id);
-                if (validIds.contains(ID)) {
-                    System.out.println(ID + " is fresh");
-                    result++;
+                for (String idRange : idRanges) {
+                    if (ID >= Long.parseLong(idRange.split("-")[0]) && ID <= Long.parseLong(idRange.split("-")[1])) {
+                        System.out.println(ID + " is fresh");
+                        result++;
+                        break;
+                    }
                 }
             }
 
