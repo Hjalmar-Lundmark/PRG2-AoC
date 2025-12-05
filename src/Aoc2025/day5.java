@@ -29,8 +29,15 @@ public class day5 {
             }
 
             System.out.println(validIds);
+            for (String id : ids) {
+                int ID = Integer.parseInt(id);
+                if (validIds.contains(ID)) {
+                    System.out.println(ID + " is fresh");
+                    result++;
+                }
+            }
 
-
+            System.out.println(result);
             System.out.println("\nCode took " + (System.currentTimeMillis() - time) + " ms to run");
         } catch (Exception e) {
             System.out.println(e);
